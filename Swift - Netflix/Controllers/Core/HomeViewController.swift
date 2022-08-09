@@ -16,10 +16,9 @@ enum Sections: Int {
 }
 
 class HomeViewController: UIViewController  {
-
-    private var randomTrendingMovie: Title?
     private var headerView: HeroHeaderUIView?
 
+    /// 决定了 numberOfSections 和 titleForHeaderInSection
     let sectionTitles: [String] = ["Trending Movies", "Trending Tv", "Popular", "Upcoming Movies", "Top rated"]
     
     private var homeFeedTable: UITableView = {
@@ -35,11 +34,11 @@ class HomeViewController: UIViewController  {
 //        self.navigationItem.title = "a"
         view.backgroundColor = .systemBackground
         view.addSubview(homeFeedTable)
+        
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
         
         configureNavbar()
-        // 显示在表格内容上方的视图
         
         headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 500))
         homeFeedTable.tableHeaderView = headerView
@@ -51,14 +50,18 @@ class HomeViewController: UIViewController  {
         super.viewDidLayoutSubviews()
         homeFeedTable.frame = view.bounds
     }
+}
+
+//MARK: - 自定义方法
+extension HomeViewController {
     
-    // dpi
-    private func configureHeroHeaderView() {
+    /// 调用api
+    public func configureHeroHeaderView() {
         APICaller.shared.getTrendingMovies { [weak self] result in
             switch result {
             case .success(let titles):
                 let selectedTitle = titles.randomElement()
-                self?.randomTrendingMovie = selectedTitle
+                
                 self?.headerView?.configure(with: TitleViewModel(titleName: selectedTitle?.original_title ?? "", posterURL: selectedTitle?.poster_path ?? ""))
             case .failure(let erorr):
                 print(erorr.localizedDescription)
@@ -66,19 +69,24 @@ class HomeViewController: UIViewController  {
         }
     }
     
-    // leftBarButtonItem / rightBarButtonItems
-    private func configureNavbar() {
+    /// 添加ButtonItems
+    public func configureNavbar() {
         var image = UIImage(named: "netflixLogo")
         image = image?.withRenderingMode(.alwaysOriginal)
+         // leftButton
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
+         // rightButton
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
             UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
         ]
+         
         navigationController?.navigationBar.tintColor = .white
     }
 }
 
+
+//MARK: - UITableViewDelegate + UITableViewDataSource
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -126,7 +134,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             }
         case Sections.Upcoming.rawValue:
-
             APICaller.shared.getUpcomingMovies { result in
                 switch result {
                 case .success(let titles):
@@ -184,10 +191,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 //    }
 }
 
-
-
 extension HomeViewController: CollectionViewTableViewCellDelegate {
-    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
+//    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
+    /// 点击事件 didSelectItemAt
+    func collectionViewTableViewCellDidTapCell(viewModel: TitlePreviewViewModel) {
         DispatchQueue.main.async { [weak self] in
             let vc = TitlePreviewViewController()
             vc.configure(with: viewModel)

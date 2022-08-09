@@ -89,7 +89,7 @@ class TitlePreviewViewController: UIViewController {
         
     }
     
-    
+    /// 从点击事件中接收 TitlePreviewViewModel
     public func configure(with model: TitlePreviewViewModel) {
         titleLabel.text = model.title
         overviewLabel.text = model.titleOverview
