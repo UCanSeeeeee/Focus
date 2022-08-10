@@ -16,9 +16,7 @@ protocol CollectionViewTableViewCellDelegate: AnyObject {
 class CollectionViewTableViewCell: UITableViewCell {
     
     static let identifier = "CollectionViewTableViewCell"
-    
     weak var delegate: CollectionViewTableViewCellDelegate?
-    
     private var titles: [Title] = [Title]()
 
     private let collectionView: UICollectionView = {
@@ -50,7 +48,7 @@ class CollectionViewTableViewCell: UITableViewCell {
     }
 }
 
-//MARK: - UICollectionViewDelegate + UICollectionViewDataSource
+//MARK: - 自定义方法
 extension CollectionViewTableViewCell {
     
     /// 等待HomeViewController注册cell时传入titles，并重新加载所有数据
@@ -61,10 +59,12 @@ extension CollectionViewTableViewCell {
         }
     }
     
+    /// 在UIMenu中点击后触发，download Action
     public func downloadTitleAt(indexPath: IndexPath) {
         DataPersistenceManager.shared.downloadTitleWith(model: titles[indexPath.row]) { result in
             switch result {
             case .success():
+                // 问题所在
                 NotificationCenter.default.post(name: NSNotification.Name("downloaded"), object: nil)
             case .failure(let error):
                 print(error.localizedDescription)
@@ -98,8 +98,9 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         return titles.count
     }
     
+    // 点击跳转事件
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        collectionView.deselectItem(at: indexPath, animated: true)
+        collectionView.deselectItem(at: indexPath, animated: true)
         
         let title = titles[indexPath.row]
         guard let titleName = title.original_title ?? title.original_name else {
@@ -108,7 +109,6 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         
         APICaller.shared.getMovie(with: titleName + " trailer") { [weak self] result in
             switch result {
-                
             case .success(let videoElement):
                 let title = self?.titles[indexPath.row]
                 guard let titleOverview = title?.overview else {
@@ -120,8 +120,6 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
 //                self?.delegate?.collectionViewTableViewCellDidTapCell(strongSelf, viewModel: viewModel)
                 let viewModel = TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: titleOverview)
                 self?.delegate?.collectionViewTableViewCellDidTapCell(viewModel: viewModel)
-                
-                
             case .failure(let error):
                 print(error.localizedDescription)
             }

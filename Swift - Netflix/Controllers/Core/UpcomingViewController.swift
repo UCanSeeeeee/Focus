@@ -9,7 +9,6 @@ import UIKit
 
 class UpcomingViewController: UIViewController {
     
-    
     private var titles: [Title] = [Title]()
     
     private let upcomingTable: UITableView = {
@@ -37,12 +36,18 @@ class UpcomingViewController: UIViewController {
         super.viewDidLayoutSubviews()
         upcomingTable.frame = view.bounds
     }
-    
+}
+
+
+//MARK: - 自定义方法
+extension UpcomingViewController {
+    ///调用api
     private func fetchUpcoming() {
         APICaller.shared.getUpcomingMovies { [weak self] result in
             switch result {
             case .success(let titles):
                 self?.titles = titles
+                // 问题所在
                 DispatchQueue.main.async {
                     self?.upcomingTable.reloadData()
                 }
@@ -54,6 +59,7 @@ class UpcomingViewController: UIViewController {
 }
 
 
+//MARK: - UITableViewDelegate + UITableViewDataSource
 extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,16 +82,16 @@ extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
         let title = titles[indexPath.row]
-        guard let titleName = title.original_title ?? title.original_name else {
-            return
-        }
+        let titleName = title.original_title ?? ""
         APICaller.shared.getMovie(with: titleName) { [weak self] result in
             switch result {
             case .success(let videoElement):
                 DispatchQueue.main.async {
                     let vc = TitlePreviewViewController()
-                    vc.configure(with: TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: title.overview ?? ""))
+                    let viewModel = TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: title.overview ?? "")
+                    vc.configure(with: viewModel)
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }
             case .failure(let error):

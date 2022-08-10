@@ -31,18 +31,23 @@ class SearchViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         view.addSubview(discoverTable)
+        
         discoverTable.delegate = self
         discoverTable.dataSource = self
         
         navigationItem.searchController = searchController
         navigationController?.navigationBar.tintColor = .white
+        
         fetchDiscoverMovies()
         searchController.searchResultsUpdater = self
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        discoverTable.frame = view.bounds
+    }
     
     private func fetchDiscoverMovies() {
-        
         APICaller.shared.getDiscoverMovies { [weak self] result in
             switch result {
             case .success(let titles):
@@ -54,29 +59,20 @@ class SearchViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
-        
-    }
-
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        discoverTable.frame = view.bounds
     }
 }
 
 
+//MARK: - UITableViewDataSource + UITableViewDelegate
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titles.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as? TitleTableViewCell else {
             return UITableViewCell()
         }
-        
-        
         let title = titles[indexPath.row]
         let model = TitleViewModel(titleName: title.original_name ?? title.original_title ?? "Unknown name", posterURL: title.poster_path ?? "")
         cell.configure(with: model)
@@ -97,17 +93,15 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
             return
         }
         
-        
         APICaller.shared.getMovie(with: titleName) { [weak self] result in
             switch result {
             case .success(let videoElement):
                 DispatchQueue.main.async {
                     let vc = TitlePreviewViewController()
-                    vc.configure(with: TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: title.overview ?? ""))
+                    let viewModel = TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: title.overview ?? "")
+                    vc.configure(with: viewModel)
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }
-
-                
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -117,9 +111,9 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension SearchViewController: UISearchResultsUpdating, SearchResultsViewControllerDelegate {
     
+    /// 根据字符串搜索
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
-        
         guard let query = searchBar.text,
               !query.trimmingCharacters(in: .whitespaces).isEmpty,
               query.trimmingCharacters(in: .whitespaces).count >= 3,
@@ -140,8 +134,6 @@ extension SearchViewController: UISearchResultsUpdating, SearchResultsViewContro
             }
         }
     }
-    
-    
     
     func searchResultsViewControllerDidTapItem(_ viewModel: TitlePreviewViewModel) {
         

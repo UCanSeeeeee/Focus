@@ -9,7 +9,6 @@ import UIKit
 
 class DownloadsViewController: UIViewController {
     
-    
     private var titles: [TitleItem] = [TitleItem]()
     
     private let downloadedTable: UITableView = {
@@ -34,10 +33,7 @@ class DownloadsViewController: UIViewController {
         }
     }
     
-    
     private func fetchLocalStorageForDownload() {
-
-        
         DataPersistenceManager.shared.fetchingTitlesFromDataBase { [weak self] result in
             switch result {
             case .success(let titles):
@@ -51,13 +47,10 @@ class DownloadsViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         downloadedTable.frame = view.bounds
     }
-    
-
 }
 
 
@@ -68,7 +61,7 @@ extension DownloadsViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as? TitleTableViewCell else {
             return UITableViewCell()
         }
@@ -78,16 +71,13 @@ extension DownloadsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
     
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
-            
             DataPersistenceManager.shared.deleteTitleWith(model: titles[indexPath.row]) { [weak self] result in
                 switch result {
                 case .success():
@@ -121,8 +111,6 @@ extension DownloadsViewController: UITableViewDelegate, UITableViewDataSource {
                     vc.configure(with: TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: title.overview ?? ""))
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }
-
-                
             case .failure(let error):
                 print(error.localizedDescription)
             }

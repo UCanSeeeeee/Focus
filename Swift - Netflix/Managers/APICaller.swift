@@ -75,7 +75,6 @@ class APICaller {
             } catch {
                 print(error.localizedDescription)
             }
-
         }
         task.resume()
     }

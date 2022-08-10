@@ -143,10 +143,10 @@
 			isa = PBXGroup;
 			children = (
 				0A1942CE274A61C600B3FA93 /* Managers */,
-				0A1942CD274A61C000B3FA93 /* Resources */,
 				0A1942CC274A61A100B3FA93 /* Models */,
-				0A1942CA274A619400B3FA93 /* Views */,
 				0A1942CB274A619B00B3FA93 /* ViewModels */,
+				0A1942CD274A61C000B3FA93 /* Resources */,
+				0A1942CA274A619400B3FA93 /* Views */,
 				0A6209BA2734614400A88D71 /* Controllers */,
 				0A6209AF2734603E00A88D71 /* Assets.xcassets */,
 				0A6209B12734603E00A88D71 /* LaunchScreen.storyboard */,
