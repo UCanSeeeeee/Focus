@@ -32,6 +32,8 @@
 		0AF8A46D2787BEA400FFE877 /* TitlePreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8A46C2787BEA400FFE877 /* TitlePreviewViewModel.swift */; };
 		D118B5422887C2FF00C4BDA1 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = D118B5412887C2FF00C4BDA1 /* SDWebImage */; };
 		D118B5442887C2FF00C4BDA1 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D118B5432887C2FF00C4BDA1 /* SDWebImageMapKit */; };
+		D15BC81628A502AB0065D2B9 /* TitleItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15BC81428A502AB0065D2B9 /* TitleItem+CoreDataClass.swift */; };
+		D15BC81728A502AB0065D2B9 /* TitleItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15BC81528A502AB0065D2B9 /* TitleItem+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		0AE30377277F600E00CBC18F /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		0AF8A46A2787BC2100FFE877 /* TitlePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePreviewViewController.swift; sourceTree = "<group>"; };
 		0AF8A46C2787BEA400FFE877 /* TitlePreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePreviewViewModel.swift; sourceTree = "<group>"; };
+		D15BC81428A502AB0065D2B9 /* TitleItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TitleItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D15BC81528A502AB0065D2B9 /* TitleItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TitleItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 		0A1942CE274A61C600B3FA93 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				D15BC81428A502AB0065D2B9 /* TitleItem+CoreDataClass.swift */,
+				D15BC81528A502AB0065D2B9 /* TitleItem+CoreDataProperties.swift */,
 				0AD9A0FF276047A900131EEF /* APICaller.swift */,
 				0A28420D2799EDB10023560C /* DataPersistenceManager.swift */,
 			);
@@ -265,6 +271,7 @@
 			files = (
 				0A7C94D527764E8C0072AE85 /* TitleTableViewCell.swift in Sources */,
 				0A6209C02734618C00A88D71 /* SearchViewController.swift in Sources */,
+				D15BC81728A502AB0065D2B9 /* TitleItem+CoreDataProperties.swift in Sources */,
 				0A5AAAA7276AE1D500149719 /* TitleCollectionViewCell.swift in Sources */,
 				0A28420E2799EDB10023560C /* DataPersistenceManager.swift in Sources */,
 				0A6209AB2734603E00A88D71 /* MainTabBarViewController.swift in Sources */,
@@ -282,6 +289,7 @@
 				0A6209BE2734617600A88D71 /* UpcomingViewController.swift in Sources */,
 				0AF8A46B2787BC2100FFE877 /* TitlePreviewViewController.swift in Sources */,
 				0AD9A10427604E4D00131EEF /* Title.swift in Sources */,
+				D15BC81628A502AB0065D2B9 /* TitleItem+CoreDataClass.swift in Sources */,
 				0A6209BC2734615B00A88D71 /* HomeViewController.swift in Sources */,
 				0A7C94D72776507A0072AE85 /* TitleViewModel.swift in Sources */,
 			);
