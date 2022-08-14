@@ -61,7 +61,8 @@ extension HomeViewController {
             switch result {
             case .success(let titles):
                 let selectedTitle = titles.randomElement()
-                self?.headerView?.configure(with: TitleViewModel(titleName: selectedTitle?.original_title ?? "", posterURL: selectedTitle?.poster_path ?? ""))
+                let titleViewModel = TitleViewModel(titleName: selectedTitle?.original_title ?? "", posterURL: selectedTitle?.poster_path ?? "")
+                self?.headerView?.configure(with: titleViewModel)
             case .failure(let erorr):
                 print(erorr.localizedDescription)
             }
