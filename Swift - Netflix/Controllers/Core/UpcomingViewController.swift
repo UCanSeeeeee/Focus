@@ -11,24 +11,21 @@ class UpcomingViewController: UIViewController {
     
     private var titles: [Title] = [Title]()
     
-    private let upcomingTable: UITableView = {
-        let table = UITableView()
-        table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
-        return table
+    lazy var upcomingTable: UITableView = {
+        let tableview = UITableView()
+        tableview.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
+        tableview.delegate = self
+        tableview.dataSource = self
+        return tableview
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        
         navigationItem.title = "Upcoming"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         view.addSubview(upcomingTable)
-        
-        upcomingTable.delegate = self
-        upcomingTable.dataSource = self
-        
         fetchUpcoming()
     }
     

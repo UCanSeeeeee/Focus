@@ -19,7 +19,7 @@ class CollectionViewTableViewCell: UITableViewCell {
     weak var delegate: CollectionViewTableViewCellDelegate?
     private var titles: [Title] = [Title]()
 
-    private let collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         /// 将items组织成网格，并横向滚动
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 140, height: 200)
@@ -27,14 +27,14 @@ class CollectionViewTableViewCell: UITableViewCell {
         // 注册
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.identifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
         return collectionView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(collectionView)
-        collectionView.delegate = self
-        collectionView.dataSource = self
     }
     
     

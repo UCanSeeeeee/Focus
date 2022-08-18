@@ -11,11 +11,13 @@ class DownloadsViewController: UIViewController {
     
     private var titles: [TitleItem] = [TitleItem]()
     
-    private let downloadedTable: UITableView = {
+    lazy var downloadedTable: UITableView = {
        
-        let table = UITableView()
-        table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
-        return table
+        let tableview = UITableView()
+        tableview.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
+        tableview.delegate = self
+        tableview.dataSource = self
+        return tableview
     }()
 
     override func viewDidLoad() {
@@ -25,14 +27,21 @@ class DownloadsViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
         view.addSubview(downloadedTable)
-        downloadedTable.delegate = self
-        downloadedTable.dataSource = self
         fetchLocalStorageForDownload()
         NotificationCenter.default.addObserver(forName: NSNotification.Name("downloaded"), object: nil, queue: nil) { _ in
             self.fetchLocalStorageForDownload()
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        downloadedTable.frame = view.bounds
+    }
+}
+
+//MARK: - 自定义方法
+extension DownloadsViewController {
+    ///得到DataBase
     private func fetchLocalStorageForDownload() {
         DataPersistenceManager.shared.fetchingTitlesFromDataBase { [weak self] result in
             switch result {
@@ -46,14 +55,8 @@ class DownloadsViewController: UIViewController {
             }
         }
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        downloadedTable.frame = view.bounds
-    }
 }
-
-
+//MARK: - UITableViewDataSource + UITableViewDelegate
 extension DownloadsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titles.count
@@ -76,6 +79,7 @@ extension DownloadsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //删除
         switch editingStyle {
         case .delete:
             DataPersistenceManager.shared.deleteTitleWith(model: titles[indexPath.row]) { [weak self] result in

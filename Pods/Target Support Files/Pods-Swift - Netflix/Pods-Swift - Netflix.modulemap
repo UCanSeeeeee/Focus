@@ -1,0 +1,6 @@
+framework module Pods_Swift___Netflix {
+  umbrella header "Pods-Swift - Netflix-umbrella.h"
+
+  export *
+  module * { export * }
+}

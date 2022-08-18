@@ -1,0 +1,22 @@
+PODS:
+  - LookinServer (1.0.6)
+  - SDWebImage (5.12.5):
+    - SDWebImage/Core (= 5.12.5)
+  - SDWebImage/Core (5.12.5)
+
+DEPENDENCIES:
+  - LookinServer
+  - SDWebImage
+
+SPEC REPOS:
+  trunk:
+    - LookinServer
+    - SDWebImage
+
+SPEC CHECKSUMS:
+  LookinServer: 18155b1e4a08213c236a1dd6b7ca52328a70a1e3
+  SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
+
+PODFILE CHECKSUM: 29e796f51e40ce6a689b7e67a4517c244521bec2
+
+COCOAPODS: 1.11.3

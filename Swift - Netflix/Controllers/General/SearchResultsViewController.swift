@@ -15,7 +15,7 @@ class SearchResultsViewController: UIViewController {
     
     public var titles: [Title] = [Title]()
     public weak var delegate: SearchResultsViewControllerDelegate?
-    public let searchResultsCollectionView: UICollectionView = {
+    lazy var searchResultsCollectionView: UICollectionView = {
        
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 3, height: 200)
@@ -23,6 +23,8 @@ class SearchResultsViewController: UIViewController {
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.identifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
         return collectionView
     }()
     
@@ -30,8 +32,7 @@ class SearchResultsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubview(searchResultsCollectionView)
-        searchResultsCollectionView.delegate = self
-        searchResultsCollectionView.dataSource = self
+
     }
     
     override func viewDidLayoutSubviews() {

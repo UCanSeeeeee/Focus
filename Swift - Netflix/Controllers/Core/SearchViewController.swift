@@ -10,10 +10,12 @@ import UIKit
 class SearchViewController: UIViewController {
     private var titles: [Title] = [Title]()
 
-    private let discoverTable: UITableView = {
-        let table = UITableView()
-        table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
-        return table
+    lazy var discoverTable: UITableView = {
+        let tableview = UITableView()
+        tableview.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
+        tableview.delegate = self
+        tableview.dataSource = self
+        return tableview
     }()
 
     private let searchController: UISearchController = {
@@ -31,10 +33,7 @@ class SearchViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         view.addSubview(discoverTable)
-        
-        discoverTable.delegate = self
-        discoverTable.dataSource = self
-        
+
         navigationItem.searchController = searchController
         navigationController?.navigationBar.tintColor = .white
         
@@ -46,7 +45,11 @@ class SearchViewController: UIViewController {
         super.viewDidLayoutSubviews()
         discoverTable.frame = view.bounds
     }
-    
+}
+
+//MARK: - 自定义方法
+extension SearchViewController {
+    ///调用api
     private func fetchDiscoverMovies() {
         APICaller.shared.getDiscoverMovies { [weak self] result in
             switch result {
@@ -61,7 +64,6 @@ class SearchViewController: UIViewController {
         }
     }
 }
-
 
 //MARK: - UITableViewDataSource + UITableViewDelegate
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
@@ -136,7 +138,6 @@ extension SearchViewController: UISearchResultsUpdating, SearchResultsViewContro
     }
     
     func searchResultsViewControllerDidTapItem(_ viewModel: TitlePreviewViewModel) {
-        
         DispatchQueue.main.async { [weak self] in
             let vc = TitlePreviewViewController()
             vc.configure(with: viewModel)
