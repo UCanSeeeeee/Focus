@@ -21,9 +21,11 @@ class HomeViewController: UIViewController  {
     /// 决定了 numberOfSections 和 titleForHeaderInSection
     let sectionTitles: [String] = ["Trending Movies", "Trending Tv", "Popular", "Upcoming Movies", "Top rated"]
     
-    private var homeFeedTable: UITableView = {
+    lazy var homeFeedTable: UITableView = {
         let tableview = UITableView()
         tableview.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
+        tableview.delegate = self
+        tableview.dataSource = self
         return tableview
     }()
     
@@ -34,15 +36,10 @@ class HomeViewController: UIViewController  {
         navigationItem.title = "Home"
         view.backgroundColor = .systemBackground
         view.addSubview(homeFeedTable)
-        
-        homeFeedTable.delegate = self
-        homeFeedTable.dataSource = self
-        
         configureNavbar()
         
         headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 500))
         homeFeedTable.tableHeaderView = headerView
-        
         configureHeroHeaderView()
     }
     
@@ -54,21 +51,6 @@ class HomeViewController: UIViewController  {
 
 //MARK: - 自定义方法
 extension HomeViewController {
-    
-    /// 调用api
-    public func configureHeroHeaderView() {
-        APICaller.shared.getTrendingMovies { [weak self] result in
-            switch result {
-            case .success(let titles):
-                let selectedTitle = titles.randomElement()
-                let titleViewModel = TitleViewModel(titleName: selectedTitle?.original_title ?? "", posterURL: selectedTitle?.poster_path ?? "")
-                self?.headerView?.configure(with: titleViewModel)
-            case .failure(let erorr):
-                print(erorr.localizedDescription)
-            }
-        }
-    }
-    
     /// 添加ButtonItems
     public func configureNavbar() {
         var image = UIImage(named: "netflixLogo")
@@ -82,6 +64,19 @@ extension HomeViewController {
         ]
          
         navigationController?.navigationBar.tintColor = .white
+    }
+    /// 调用api
+    public func configureHeroHeaderView() {
+        APICaller.shared.getTrendingMovies { [weak self] result in
+            switch result {
+            case .success(let titles):
+                let selectedTitle = titles.randomElement()
+                let titleViewModel = TitleViewModel(titleName: selectedTitle?.original_title ?? "", posterURL: selectedTitle?.poster_path ?? "")
+                self?.headerView?.configure(with: titleViewModel)
+            case .failure(let erorr):
+                print(erorr.localizedDescription)
+            }
+        }
     }
 }
 
@@ -102,6 +97,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
+        // 能够传递点击事件
         cell.delegate = self
         
         // 🌸未搞懂，等待解决
