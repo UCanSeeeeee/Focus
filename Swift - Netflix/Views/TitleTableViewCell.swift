@@ -53,7 +53,7 @@ class TitleTableViewCell: UITableViewCell {
 
 //MARK: - 自定义方法
 extension TitleTableViewCell {
-    
+    // 改
     private func applyConstraints() {
         let titlesPosterUIImageViewConstraints = [
             titlesPosterUIImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

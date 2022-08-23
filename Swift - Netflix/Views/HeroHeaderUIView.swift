@@ -16,6 +16,7 @@ class HeroHeaderUIView: UIView {
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(onTap), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -26,9 +27,14 @@ class HeroHeaderUIView: UIView {
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 5
+        button.addTarget(self, action:  #selector(onTap), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    @objc func onTap() {
+        print("onTap")
+    }
     
     private let heroImageView: UIImageView = {
         let imageView = UIImageView()

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 enum Sections: Int {
     case TrendingMovies = 0
@@ -24,8 +25,8 @@ class HomeViewController: UIViewController  {
     lazy var homeFeedTable: UITableView = {
         let tableview = UITableView()
         tableview.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
-        tableview.delegate = self
         tableview.dataSource = self
+        tableview.delegate = self
         return tableview
     }()
     
@@ -67,6 +68,21 @@ extension HomeViewController {
     }
     /// 调用api
     public func configureHeroHeaderView() {
+  
+// 直接用AF写的效果
+//        AF.request("https://api.themoviedb.org/3/trending/movie/day?api_key=697d439ac993538da4e3e60b54e762cd").responseDecodable { [weak self] (res: AFDataResponse<TrendingTitleResponse>) in
+//            switch res.result {
+//            case .success(let data):
+//                let titles = data.results
+//                let selectedTitle = titles.randomElement()
+//                let titleViewModel = TitleViewModel(titleName: selectedTitle?.original_title ?? "", posterURL: selectedTitle?.poster_path ?? "")
+//                self?.headerView?.configure(with: titleViewModel)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+        
+// 原生写法：
         APICaller.shared.getTrendingMovies { [weak self] result in
             switch result {
             case .success(let titles):

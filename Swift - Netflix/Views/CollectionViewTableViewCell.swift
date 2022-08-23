@@ -54,8 +54,9 @@ extension CollectionViewTableViewCell {
     /// 等待HomeViewController注册cell时传入titles，并重新加载所有数据
     public func configure(with titles: [Title]) {
         self.titles = titles
+        
         DispatchQueue.main.async { [weak self] in
-            self?.collectionView.reloadData()
+                self?.collectionView.reloadData()
         }
     }
     
@@ -87,6 +88,9 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
             return UICollectionViewCell()
         }
         cell.configure(with: model)
+//        可在此进行Cell复用机制测试
+//        print(indexPath.row)
+//        print(cell.description)
         return cell
     }
     
@@ -123,7 +127,6 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            
         }
     }
     

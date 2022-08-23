@@ -6,6 +6,7 @@ target 'Swift - Netflix' do
   use_frameworks!
   pod 'LookinServer', :configurations => ['Debug']
   pod 'SDWebImage'
+  pod 'Alamofire'
   # Pods for Swift - Netflix
 
 end
