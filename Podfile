@@ -7,6 +7,7 @@ target 'Swift - Netflix' do
   pod 'LookinServer', :configurations => ['Debug']
   pod 'SDWebImage'
   pod 'Alamofire'
+  pod 'Kingfisher', '~> 7.0'
   # Pods for Swift - Netflix
 
 end

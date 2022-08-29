@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.6.1)
+  - Kingfisher (7.3.1)
   - LookinServer (1.0.6)
   - SDWebImage (5.12.5):
     - SDWebImage/Core (= 5.12.5)
@@ -7,20 +8,23 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Kingfisher (~> 7.0)
   - LookinServer
   - SDWebImage
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Kingfisher
     - LookinServer
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  Kingfisher: f411ab4902e733fc0c40522920fb5a236d7a7334
   LookinServer: 18155b1e4a08213c236a1dd6b7ca52328a70a1e3
   SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
 
-PODFILE CHECKSUM: 1214eac4b763bfd9da9414647a3493c116a45151
+PODFILE CHECKSUM: 7b0a73a20c74c999abbafb061638cbb5ec8cf978
 
 COCOAPODS: 1.11.3

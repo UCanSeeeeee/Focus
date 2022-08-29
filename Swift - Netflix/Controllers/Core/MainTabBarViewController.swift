@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Kingfisher
+
 
 class MainTabBarViewController: UITabBarController {
 
@@ -34,7 +36,5 @@ class MainTabBarViewController: UITabBarController {
 //        viewControllers = []
 
     }
-
-
 }
 
