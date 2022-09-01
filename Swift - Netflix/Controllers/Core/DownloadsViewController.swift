@@ -112,7 +112,8 @@ extension DownloadsViewController: UITableViewDelegate, UITableViewDataSource {
             case .success(let videoElement):
                 DispatchQueue.main.async {
                     let vc = TitlePreviewViewController()
-                    vc.configure(with: TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: title.overview ?? ""))
+                    let titlePreviewViewModel = TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: title.overview ?? "")
+                    vc.configure(with: titlePreviewViewModel)
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }
             case .failure(let error):

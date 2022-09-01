@@ -57,18 +57,21 @@ extension HomeViewController {
         var image = UIImage(named: "netflixLogo")
         image = image?.withRenderingMode(.alwaysOriginal)
          // leftButton
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: #selector(onTap))
          // rightButton
         navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
-            UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
+            UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: #selector(onTap)),
+            UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: #selector(onTap))
         ]
          
         navigationController?.navigationBar.tintColor = .white
     }
+    
+    @objc func onTap() {
+        print("TapSucceed")
+    }
+    
     /// 调用api
-    public func configureHeroHeaderView() {
-  
 // 直接用AF写的效果
 //        AF.request("https://api.themoviedb.org/3/trending/movie/day?api_key=697d439ac993538da4e3e60b54e762cd").responseDecodable { [weak self] (res: AFDataResponse<TrendingTitleResponse>) in
 //            switch res.result {
@@ -81,8 +84,7 @@ extension HomeViewController {
 //                print(error.localizedDescription)
 //            }
 //        }
-        
-// 原生写法：
+    public func configureHeroHeaderView() {
         APICaller.shared.getTrendingMovies { [weak self] result in
             switch result {
             case .success(let titles):
@@ -206,11 +208,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController: CollectionViewTableViewCellDelegate {
 //    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
     /// 点击事件 didSelectItemAt
-    func collectionViewTableViewCellDidTapCell(viewModel: TitlePreviewViewModel) {
+    func collectionViewTableViewCellDidTapCell(viewModel: TitlePreviewViewModel, indexPath: IndexPath, Titles: [Title]) {
+
+        let vc = TitlePreviewViewController()
+        vc.configure(with: viewModel)
+        vc.configIndexPath(configIndexPath: indexPath, Titles: Titles)
         DispatchQueue.main.async { [weak self] in
-            let vc = TitlePreviewViewController()
-            vc.configure(with: viewModel)
             self?.navigationController?.pushViewController(vc, animated: true)
         }
+
+        
+//        let vc = TitlePreviewViewController()
+//        vc.configure(with: viewModel)
+//        present(vc, animated: true)
+        
+//        DispatchQueue.main.async { [weak self] in
+//            let vc = TitlePreviewViewController()
+//            vc.configure(with: viewModel)
+//            self?.navigationController?.pushViewController(vc, animated: true)
+//        }
     }
 }
