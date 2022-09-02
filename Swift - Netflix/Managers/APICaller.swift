@@ -35,6 +35,10 @@ class APICaller {
                 completion(.failure(APIError.failedTogetData))
             }
         }
+        //查看json数据模型
+//        AF.request(url).responseJSON { response in
+//            print(response.result)
+//        }
     }
     
     func getTrendingTvs(completion: @escaping (Result<[Title], Error>) -> Void) {
@@ -127,11 +131,6 @@ class APICaller {
         }
     }
 }
-
-
-
-
-
 
 /*
  let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in

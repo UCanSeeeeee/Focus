@@ -69,7 +69,7 @@ extension DownloadsViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let title = titles[indexPath.row]
-        let titleViewModel = TitleViewModel(titleName: (title.original_title ?? title.original_name) ?? "Unknown title name", posterURL: title.poster_path ?? "")
+        let titleViewModel = TitleViewModel(titleName: title.original_title ?? "Unknown title name", posterURL: title.poster_path ?? "")
         cell.configure(with: titleViewModel)
         return cell
     }
@@ -102,7 +102,7 @@ extension DownloadsViewController: UITableViewDelegate, UITableViewDataSource {
         
         let title = titles[indexPath.row]
         
-        guard let titleName = title.original_title ?? title.original_name else {
+        guard let titleName = title.original_title else {
             return
         }
         
