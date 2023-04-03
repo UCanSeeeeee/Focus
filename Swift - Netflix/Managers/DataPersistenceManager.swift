@@ -20,9 +20,6 @@ class DataPersistenceManager {
     static let shared = DataPersistenceManager()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    //        let request: NSFetchRequest<TitleItem>
-    //        let request = TitleItem.fetchRequest()
-    /// 用于获取titles
     func fetchingTitlesFromDataBase(completion: @escaping (Result<[TitleItem], Error>) -> Void) {
         do {
             let titles = try context.fetch(TitleItem.fetchRequest())
@@ -32,18 +29,12 @@ class DataPersistenceManager {
         }
     }
     
-    //        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-    //            return
-    //        }
-    //        let context = appDelegate.persistentContainer.viewContext
     func downloadTitleWith(model: Title, completion: @escaping (Result<Void, Error>) -> Void) {
-        
         let item = TitleItem(context: context)
-        
         item.original_title = model.original_title
         item.id = Int64(model.id)
         item.overview = model.overview
-        
+        item.poster_path = model.poster_path
         do {
             try context.save()
             completion(.success(()))
@@ -51,11 +42,7 @@ class DataPersistenceManager {
             completion(.failure(DatabasError.failedToSaveData))
         }
     }
-    
-    //        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-    //            return
-    //        }
-    //        let context = appDelegate.persistentContainer.viewContext
+
     func deleteTitleWith(model: TitleItem, completion: @escaping (Result<Void, Error>)-> Void) {
         context.delete(model)
         do {

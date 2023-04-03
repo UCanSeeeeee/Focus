@@ -89,36 +89,6 @@ class TitlePreviewViewController: UIViewController {
             make.width.equalTo(140)
             make.height.equalTo(40)
         }
-//
-//        let webViewConstraints = [
-//            webView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
-//            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            webView.heightAnchor.constraint(equalToConstant: 300)
-//        ]
-//
-//        let titleLabelConstraints = [
-//            titleLabel.topAnchor.constraint(equalTo: webView.bottomAnchor, constant: 20),
-//            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-//        ]
-//
-//        let overviewLabelConstraints = [
-//            overviewLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
-//            overviewLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-//            overviewLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-//        ]
-//
-//        let downloadButtonConstraints = [
-//            downloadButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            downloadButton.topAnchor.constraint(equalTo: overviewLabel.bottomAnchor, constant: 25),
-//            downloadButton.widthAnchor.constraint(equalToConstant: 140),
-//            downloadButton.heightAnchor.constraint(equalToConstant: 40)
-//        ]
-//
-//        NSLayoutConstraint.activate(webViewConstraints)
-//        NSLayoutConstraint.activate(titleLabelConstraints)
-//        NSLayoutConstraint.activate(overviewLabelConstraints)
-//        NSLayoutConstraint.activate(downloadButtonConstraints)
         
     }
     
@@ -134,7 +104,6 @@ class TitlePreviewViewController: UIViewController {
         DataPersistenceManager.shared.downloadTitleWith(model: titles[indexPath.row]) { result in
             switch result {
             case .success():
-                // 问题所在
                 NotificationCenter.default.post(name: NSNotification.Name("downloaded"), object: nil)
             case .failure(let error):
                 print(error.localizedDescription)

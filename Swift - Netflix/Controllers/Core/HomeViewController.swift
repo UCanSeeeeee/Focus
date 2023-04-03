@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import MessageUI
 
 enum Sections: Int {
     case TrendingMovies = 0
@@ -16,7 +17,7 @@ enum Sections: Int {
     case TopRated = 4
 }
 
-class HomeViewController: UIViewController  {
+class HomeViewController: UIViewController, MFMailComposeViewControllerDelegate{
     private var headerView: HeroHeaderUIView?
 
     /// 决定了 numberOfSections 和 titleForHeaderInSection
@@ -30,18 +31,41 @@ class HomeViewController: UIViewController  {
         return tableview
     }()
     
+    private lazy var otherResourceButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("OtherResource", for: .normal)
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(otherResourceTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private lazy var emailAuthorButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("EmailToAuthor", for: .normal)
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(handleEmailButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     // 创建 UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.title = "avc"
         navigationItem.title = "Home"
         view.backgroundColor = .systemBackground
         view.addSubview(homeFeedTable)
+        view.addSubview(emailAuthorButton)
+        view.addSubview(otherResourceButton)
         configureNavbar()
-        
+        configureHeroHeaderView()
         headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 500))
         homeFeedTable.tableHeaderView = headerView
-        configureHeroHeaderView()
+        applyConstraints()
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,33 +81,76 @@ extension HomeViewController {
         var image = UIImage(named: "netflixLogo")
         image = image?.withRenderingMode(.alwaysOriginal)
          // leftButton
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: #selector(onTap))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: #selector(openTencentTV))
          // rightButton
         navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: #selector(onTap)),
-            UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: #selector(onTap))
+            UIBarButtonItem(image: UIImage(systemName: "text.bubble"), style: .done, target: self, action: #selector(openChiehBlog)),
+            UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .done, target: self, action: #selector(introduceTapped))
         ]
          
         navigationController?.navigationBar.tintColor = .white
     }
     
-    @objc func onTap() {
-        print("TapSucceed")
+    @objc func introduceTapped() {
+        let alert = UIAlertController(title: "App Introduce", message: "This program is only used for paid movie preview, all data from TMDB public Api, no charge to users.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
-    /// 调用api
-// 直接用AF写的效果
-//        AF.request("https://api.themoviedb.org/3/trending/movie/day?api_key=697d439ac993538da4e3e60b54e762cd").responseDecodable { [weak self] (res: AFDataResponse<TrendingTitleResponse>) in
-//            switch res.result {
-//            case .success(let data):
-//                let titles = data.results
-//                let selectedTitle = titles.randomElement()
-//                let titleViewModel = TitleViewModel(titleName: selectedTitle?.original_title ?? "", posterURL: selectedTitle?.poster_path ?? "")
-//                self?.headerView?.configure(with: titleViewModel)
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
+    @objc func otherResourceTapped() {
+        guard let url = URL(string: "https://chiehwang.top/resources_center") else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    @objc func openTencentTV() {
+        guard let url = URL(string: "https://film.qq.com/film_all_list/allfilm.html?type=movie&sort=75") else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    @objc func openChiehBlog() {
+        let alert = UIAlertController(title: "Author's Blog", message: "Do you want to know more about the author's projects?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
+            guard let url = URL(string: "https://chiehwang.top") else { return }
+            UIApplication.shared.open(url)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .default))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func handleEmailButtonTapped() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["chieh504@qq.com"])
+            present(mail, animated: true)
+        } else {
+            let alert = UIAlertController(title: "Cannot Send Email", message: "Your device is not configured to send email. Please configure an email account and try again.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
+
+    private func applyConstraints() {
+        if let headerView = headerView {
+            emailAuthorButton.snp.makeConstraints { make in
+                make.left.equalTo(headerView.snp.left).offset((UIScreen.main.bounds.width - 240 - 40)/2)
+                make.bottom.equalTo(headerView.snp.bottom).offset(-50)
+                make.width.equalTo(130)
+            }
+            otherResourceButton.snp.makeConstraints { make in
+                make.right.equalTo(headerView.snp.right).offset(-(UIScreen.main.bounds.width - 240 - 40)/2)
+                make.bottom.equalTo(headerView.snp.bottom).offset(-50)
+                make.width.equalTo(130)
+            }
+        } else {
+            print("headerView is nil")
+        }
+    }
+    
     public func configureHeroHeaderView() {
         APICaller.shared.getTrendingMovies { [weak self] result in
             switch result {
@@ -196,17 +263,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionTitles[section]
     }
-    
-// 改变顶部透明度
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let defaultOffset = view.safeAreaInsets.top
-//        let offset = scrollView.contentOffset.y + defaultOffset
-//        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
-//    }
 }
 
 extension HomeViewController: CollectionViewTableViewCellDelegate {
-//    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
     /// 点击事件 didSelectItemAt
     func collectionViewTableViewCellDidTapCell(viewModel: TitlePreviewViewModel, indexPath: IndexPath, Titles: [Title]) {
 
@@ -216,16 +275,5 @@ extension HomeViewController: CollectionViewTableViewCellDelegate {
         DispatchQueue.main.async { [weak self] in
             self?.navigationController?.pushViewController(vc, animated: true)
         }
-
-        
-//        let vc = TitlePreviewViewController()
-//        vc.configure(with: viewModel)
-//        present(vc, animated: true)
-        
-//        DispatchQueue.main.async { [weak self] in
-//            let vc = TitlePreviewViewController()
-//            vc.configure(with: viewModel)
-//            self?.navigationController?.pushViewController(vc, animated: true)
-//        }
     }
 }

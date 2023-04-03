@@ -12,7 +12,6 @@ class DownloadsViewController: UIViewController {
     private var titles: [TitleItem] = [TitleItem]()
     
     lazy var downloadedTable: UITableView = {
-       
         let tableview = UITableView()
         tableview.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
         tableview.delegate = self
@@ -85,7 +84,7 @@ extension DownloadsViewController: UITableViewDelegate, UITableViewDataSource {
             DataPersistenceManager.shared.deleteTitleWith(model: titles[indexPath.row]) { [weak self] result in
                 switch result {
                 case .success():
-                    print("Deleted fromt the database")
+                    print("Deleted from the database")
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

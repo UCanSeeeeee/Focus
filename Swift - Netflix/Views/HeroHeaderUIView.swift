@@ -7,46 +7,11 @@
 
 import UIKit
 import Alamofire
+import MessageUI
 
-class HeroHeaderUIView: UIView {
-  
-    // 两种初始化方法
-//    private var downloadButton: UIButton {
-//        let button = UIButton()
-//        button.setTitle("Download", for: .normal)
-//        button.layer.borderColor = UIColor.white.cgColor
-//        button.layer.borderWidth = 1
-//        button.layer.cornerRadius = 5
-//        button.addTarget(self, action: #selector(onTap), for: .touchUpInside)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        return button
-//    }
+class HeroHeaderUIView: UIView, MFMailComposeViewControllerDelegate{
     
-    private lazy var downloadButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Download", for: .normal)
-        button.layer.borderColor = UIColor.white.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 5
-        button.addTarget(self, action: #selector(onTap), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    private lazy var playButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Play", for: .normal)
-        button.layer.borderColor = UIColor.white.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 5
-        button.addTarget(self, action: #selector(onTap), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    @objc func onTap() {
-        print("TapSucceed")
-    }
+
     
     private let heroImageView: UIImageView = {
         let imageView = UIImageView()
@@ -60,9 +25,6 @@ class HeroHeaderUIView: UIView {
         super.init(frame: frame)
         addSubview(heroImageView)
         addGradient()
-        addSubview(playButton)
-        addSubview(downloadButton)
-        applyConstraints()
     }
     
     override func layoutSubviews() {
@@ -88,33 +50,6 @@ extension HeroHeaderUIView {
         ]
         gradientLayer.frame = bounds
         layer.addSublayer(gradientLayer)
-    }
-    
-    /// headview - buttons 的 constraints
-    private func applyConstraints() {
-        
-        playButton.snp.makeConstraints { make in
-            make.left.equalTo(self.snp.left).offset((UIScreen.main.bounds.width - 240 - 40)/2)
-            make.bottom.equalTo(self.snp.bottom).offset(-50)
-            make.width.equalTo(120)
-        }
-        downloadButton.snp.makeConstraints { make in
-            make.right.equalTo(self.snp.right).offset(-(UIScreen.main.bounds.width - 240 - 40)/2)
-            make.bottom.equalTo(self.snp.bottom).offset(-50)
-            make.width.equalTo(120)
-        }
-//        let playButtonConstraints = [
-//            playButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: (UIScreen.main.bounds.width - 240 - 40)/2),
-//            playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
-//            playButton.widthAnchor.constraint(equalToConstant: 120)
-//        ]
-//        let downloadButtonConstraints = [
-//            downloadButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(UIScreen.main.bounds.width - 240 - 40)/2),
-//            downloadButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
-//            downloadButton.widthAnchor.constraint(equalToConstant: 120)
-//        ]
-//        NSLayoutConstraint.activate(playButtonConstraints)
-//        NSLayoutConstraint.activate(downloadButtonConstraints)
     }
     
     /// headview的image（异步+缓存）

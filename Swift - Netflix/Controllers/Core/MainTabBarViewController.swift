@@ -21,7 +21,7 @@ class MainTabBarViewController: UITabBarController {
         let vc2 = UINavigationController(rootViewController: UpcomingViewController())
         let vc3 = UINavigationController(rootViewController: SearchViewController())
         let vc4 = UINavigationController(rootViewController: DownloadsViewController())
-        
+        viewControllers = [vc1, vc2, vc3, vc4]
         vc1.tabBarItem.image = UIImage(systemName: "house")
         vc2.tabBarItem.image = UIImage(systemName: "play.circle")
         vc3.tabBarItem.image = UIImage(systemName: "magnifyingglass")
@@ -33,7 +33,7 @@ class MainTabBarViewController: UITabBarController {
         vc4.title = "Downloads"
         
         tabBar.tintColor = .label // 蓝色和白色的差别
-        viewControllers = [vc1, vc2, vc3, vc4]
+        
 //        viewControllers = []
 
     }

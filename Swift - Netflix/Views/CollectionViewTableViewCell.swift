@@ -9,7 +9,6 @@ import UIKit
 
 
 protocol CollectionViewTableViewCellDelegate: AnyObject {
-//    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel)
     func collectionViewTableViewCellDidTapCell(viewModel: TitlePreviewViewModel, indexPath: IndexPath, Titles: [Title])
 }
 
@@ -65,7 +64,6 @@ extension CollectionViewTableViewCell {
         DataPersistenceManager.shared.downloadTitleWith(model: titles[indexPath.row]) { result in
             switch result {
             case .success():
-                // 问题所在
                 NotificationCenter.default.post(name: NSNotification.Name("downloaded"), object: nil)
             case .failure(let error):
                 print(error.localizedDescription)
@@ -118,13 +116,8 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
                 guard let titleOverview = title?.overview else {
                     return
                 }
-//                guard let strongSelf = self else {
-//                    return
-//                }
-//                self?.delegate?.collectionViewTableViewCellDidTapCell(strongSelf, viewModel: viewModel)
                 let viewModel = TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: titleOverview)
-                let Titles = self?.titles
-                guard let Titles = Titles else{
+                guard let Titles = self?.titles else{
                     return
                 }
                 self?.delegate?.collectionViewTableViewCellDidTapCell(viewModel: viewModel, indexPath: indexPath, Titles: Titles)

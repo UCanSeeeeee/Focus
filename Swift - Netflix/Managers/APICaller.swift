@@ -23,7 +23,6 @@ class APICaller {
     static let shared = APICaller()
     
     func getTrendingMovies(completion: @escaping (Result<[Title], Error>) -> Void) {
-
         guard let url = URL(string: "\(Constants.baseURL)/3/trending/movie/day?api_key=\(Constants.API_KEY)") else {
             return
         }
@@ -35,12 +34,11 @@ class APICaller {
                 completion(.failure(APIError.failedTogetData))
             }
         }
-        //查看json数据模型
+    }
+    //查看json数据模型
 //        AF.request(url).responseJSON { response in
 //            print(response.result)
 //        }
-    }
-    
     func getTrendingTvs(completion: @escaping (Result<[Title], Error>) -> Void) {
         guard let url = URL(string: "\(Constants.baseURL)/3/trending/tv/day?api_key=\(Constants.API_KEY)") else {return}
         AF.request(url).responseDecodable { (res: AFDataResponse<TrendingTitleResponse>) in
