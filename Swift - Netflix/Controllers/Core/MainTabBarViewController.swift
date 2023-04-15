@@ -18,19 +18,19 @@ class MainTabBarViewController: UITabBarController {
         view.backgroundColor = .systemYellow
         
         let vc1 = UINavigationController(rootViewController: HomeViewController())
-        let vc2 = UINavigationController(rootViewController: UpcomingViewController())
-        let vc3 = UINavigationController(rootViewController: SearchViewController())
-        let vc4 = UINavigationController(rootViewController: DownloadsViewController())
+        let vc2 = UINavigationController(rootViewController: SearchViewController())
+        let vc3 = UINavigationController(rootViewController: DownloadsViewController())
+        let vc4 = UINavigationController(rootViewController: BNMainViewController())
         viewControllers = [vc1, vc2, vc3, vc4]
         vc1.tabBarItem.image = UIImage(systemName: "house")
-        vc2.tabBarItem.image = UIImage(systemName: "play.circle")
-        vc3.tabBarItem.image = UIImage(systemName: "magnifyingglass")
-        vc4.tabBarItem.image = UIImage(systemName: "arrow.down.to.line")
+        vc2.tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        vc3.tabBarItem.image = UIImage(systemName: "star")
+        vc4.tabBarItem.image = UIImage(systemName: "play.circle")
         
         vc1.title = "Home"
-        vc2.title = "Coming Soon"
-        vc3.title = "Top Search"
-        vc4.title = "Downloads"
+        vc2.title = "Top Search"
+        vc3.title = "Marks"
+        vc4.title = "喵酱爱订阅"
         
         tabBar.tintColor = .label // 蓝色和白色的差别
         

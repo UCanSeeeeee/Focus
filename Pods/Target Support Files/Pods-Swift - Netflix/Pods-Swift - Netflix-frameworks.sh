@@ -176,15 +176,43 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Aspects/Aspects.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Colours/Colours.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FCAlertView/FCAlertView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LookinServer/LookinServer.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MMKV/MMKV.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MMKVCore/MMKVCore.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SQLiteRepairKit/sqliterk.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ViaBus/ViaBus.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/WCDB/WCDB.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Aspects/Aspects.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Colours/Colours.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FCAlertView/FCAlertView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MMKV/MMKV.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MMKVCore/MMKVCore.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SQLiteRepairKit/sqliterk.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ViaBus/ViaBus.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/WCDB/WCDB.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

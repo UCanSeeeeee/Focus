@@ -30,6 +30,61 @@
 		0AF8A46B2787BC2100FFE877 /* TitlePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8A46A2787BC2100FFE877 /* TitlePreviewViewController.swift */; };
 		0AF8A46D2787BEA400FFE877 /* TitlePreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8A46C2787BEA400FFE877 /* TitlePreviewViewModel.swift */; };
 		8E59A2825A3391649EF371B6 /* Pods_Swift___Netflix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A2886E291955D4C7BD1C9 /* Pods_Swift___Netflix.framework */; };
+		D110E1E629DB0B330093AAA8 /* BNAuthorCellView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E17E29DB0B310093AAA8 /* BNAuthorCellView.mm */; };
+		D110E1E729DB0B330093AAA8 /* MMUIView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E17F29DB0B310093AAA8 /* MMUIView.mm */; };
+		D110E1E829DB0B330093AAA8 /* BNAuthorIntroduceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E18329DB0B310093AAA8 /* BNAuthorIntroduceView.mm */; };
+		D110E1E929DB0B330093AAA8 /* BNTitleSubView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E18429DB0B310093AAA8 /* BNTitleSubView.mm */; };
+		D110E1EA29DB0B330093AAA8 /* JBKenBurnsView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E18629DB0B310093AAA8 /* JBKenBurnsView.mm */; };
+		D110E1EB29DB0B330093AAA8 /* BNSearchAuthorTableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E18829DB0B310093AAA8 /* BNSearchAuthorTableViewCell.mm */; };
+		D110E1EC29DB0B330093AAA8 /* BNMainSubCardView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E18929DB0B310093AAA8 /* BNMainSubCardView.mm */; };
+		D110E1ED29DB0B330093AAA8 /* BNCellWidgetView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E18D29DB0B310093AAA8 /* BNCellWidgetView.mm */; };
+		D110E1EE29DB0B330093AAA8 /* UIView+Extend.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E19329DB0B320093AAA8 /* UIView+Extend.mm */; };
+		D110E1EF29DB0B330093AAA8 /* UIView+ViewToolBox.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E19429DB0B320093AAA8 /* UIView+ViewToolBox.mm */; };
+		D110E1F029DB0B330093AAA8 /* UIImage+EditTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E19729DB0B320093AAA8 /* UIImage+EditTool.mm */; };
+		D110E1F129DB0B330093AAA8 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D110E19829DB0B320093AAA8 /* UIBarButtonItem+Extension.m */; };
+		D110E1F229DB0B330093AAA8 /* NSString+Interact.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E19929DB0B320093AAA8 /* NSString+Interact.mm */; };
+		D110E1F329DB0B330093AAA8 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D110E19A29DB0B320093AAA8 /* UIView+Extension.m */; };
+		D110E1F429DB0B330093AAA8 /* BNBasicDataService.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E19C29DB0B320093AAA8 /* BNBasicDataService.mm */; };
+		D110E1F529DB0B330093AAA8 /* BNYoutubeSearchAuthorCGI.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1A029DB0B320093AAA8 /* BNYoutubeSearchAuthorCGI.mm */; };
+		D110E1F629DB0B330093AAA8 /* BNYoutubeGetAuthorInfoCGI.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1A129DB0B320093AAA8 /* BNYoutubeGetAuthorInfoCGI.mm */; };
+		D110E1F729DB0B330093AAA8 /* BNBlibliSearchAuthorCGI.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1A529DB0B320093AAA8 /* BNBlibliSearchAuthorCGI.mm */; };
+		D110E1F829DB0B330093AAA8 /* BNBlibliGetAuthorInfoCGI.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1A629DB0B320093AAA8 /* BNBlibliGetAuthorInfoCGI.mm */; };
+		D110E1F929DB0B330093AAA8 /* BNSubscribeMMKV.m in Sources */ = {isa = PBXBuildFile; fileRef = D110E1AA29DB0B320093AAA8 /* BNSubscribeMMKV.m */; };
+		D110E1FA29DB0B330093AAA8 /* BNSubscribeWCDB.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1AB29DB0B320093AAA8 /* BNSubscribeWCDB.mm */; };
+		D110E1FB29DB0B330093AAA8 /* BNMainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1AD29DB0B320093AAA8 /* BNMainViewController.mm */; };
+		D110E1FC29DB0B330093AAA8 /* BNSearchAuthorViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1B029DB0B320093AAA8 /* BNSearchAuthorViewController.mm */; };
+		D110E1FD29DB0B330093AAA8 /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D110E1B229DB0B320093AAA8 /* WKWebViewController.m */; };
+		D110E1FE29DB0B330093AAA8 /* BNAuthorListViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1B329DB0B320093AAA8 /* BNAuthorListViewController.mm */; };
+		D110E1FF29DB0B330093AAA8 /* BNAddSubscribeViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1B429DB0B320093AAA8 /* BNAddSubscribeViewController.mm */; };
+		D110E20029DB0B330093AAA8 /* BNQuestionListViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1B529DB0B320093AAA8 /* BNQuestionListViewController.mm */; };
+		D110E20129DB0B330093AAA8 /* icons_filled_more.svg in Resources */ = {isa = PBXBuildFile; fileRef = D110E1BB29DB0B320093AAA8 /* icons_filled_more.svg */; };
+		D110E20229DB0B330093AAA8 /* RoundLoading.gif in Resources */ = {isa = PBXBuildFile; fileRef = D110E1BC29DB0B320093AAA8 /* RoundLoading.gif */; };
+		D110E20329DB0B330093AAA8 /* icons_filled_help.svg in Resources */ = {isa = PBXBuildFile; fileRef = D110E1BD29DB0B320093AAA8 /* icons_filled_help.svg */; };
+		D110E20429DB0B330093AAA8 /* icons_outlined_close.svg in Resources */ = {isa = PBXBuildFile; fileRef = D110E1BE29DB0B320093AAA8 /* icons_outlined_close.svg */; };
+		D110E20529DB0B330093AAA8 /* icons_filled_together.svg in Resources */ = {isa = PBXBuildFile; fileRef = D110E1BF29DB0B320093AAA8 /* icons_filled_together.svg */; };
+		D110E20629DB0B330093AAA8 /* icons_filled_at.svg in Resources */ = {isa = PBXBuildFile; fileRef = D110E1C029DB0B320093AAA8 /* icons_filled_at.svg */; };
+		D110E20729DB0B330093AAA8 /* icons_filled_add2.svg in Resources */ = {isa = PBXBuildFile; fileRef = D110E1C129DB0B320093AAA8 /* icons_filled_add2.svg */; };
+		D110E20829DB0B330093AAA8 /* icons_filled_arrow.svg in Resources */ = {isa = PBXBuildFile; fileRef = D110E1C229DB0B320093AAA8 /* icons_filled_arrow.svg */; };
+		D110E20929DB0B330093AAA8 /* icons_outlined_easy_read.svg in Resources */ = {isa = PBXBuildFile; fileRef = D110E1C329DB0B320093AAA8 /* icons_outlined_easy_read.svg */; };
+		D110E20A29DB0B330093AAA8 /* icons_filled_share.svg in Resources */ = {isa = PBXBuildFile; fileRef = D110E1C429DB0B320093AAA8 /* icons_filled_share.svg */; };
+		D110E20B29DB0B330093AAA8 /* icons_filled_book.svg in Resources */ = {isa = PBXBuildFile; fileRef = D110E1C529DB0B320093AAA8 /* icons_filled_book.svg */; };
+		D110E20C29DB0B330093AAA8 /* icons_loading_white.svg in Resources */ = {isa = PBXBuildFile; fileRef = D110E1C629DB0B320093AAA8 /* icons_loading_white.svg */; };
+		D110E20D29DB0B330093AAA8 /* icons_filled_tool.svg in Resources */ = {isa = PBXBuildFile; fileRef = D110E1C729DB0B320093AAA8 /* icons_filled_tool.svg */; };
+		D110E20E29DB0B330093AAA8 /* icons_filled_subscriptions.svg in Resources */ = {isa = PBXBuildFile; fileRef = D110E1C829DB0B320093AAA8 /* icons_filled_subscriptions.svg */; };
+		D110E20F29DB0B330093AAA8 /* icons_filled_link.svg in Resources */ = {isa = PBXBuildFile; fileRef = D110E1C929DB0B320093AAA8 /* icons_filled_link.svg */; };
+		D110E21029DB0B330093AAA8 /* loading_black.gif in Resources */ = {isa = PBXBuildFile; fileRef = D110E1CA29DB0B320093AAA8 /* loading_black.gif */; };
+		D110E21129DB0B330093AAA8 /* blibliDefaultAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = D110E1CC29DB0B320093AAA8 /* blibliDefaultAvatar.png */; };
+		D110E21229DB0B330093AAA8 /* BNMainListViewModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1CE29DB0B330093AAA8 /* BNMainListViewModel.mm */; };
+		D110E21329DB0B330093AAA8 /* BNAuthorListViewModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1D129DB0B330093AAA8 /* BNAuthorListViewModel.mm */; };
+		D110E21429DB0B330093AAA8 /* BNSubscribeInfoModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1D329DB0B330093AAA8 /* BNSubscribeInfoModel.mm */; };
+		D110E21529DB0B330093AAA8 /* BNAuthorDataInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1D629DB0B330093AAA8 /* BNAuthorDataInfo.mm */; };
+		D110E21629DB0B330093AAA8 /* BNSearchAuthorViewModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1D729DB0B330093AAA8 /* BNSearchAuthorViewModel.mm */; };
+		D110E21729DB0B330093AAA8 /* BNMainCardViewModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1D829DB0B330093AAA8 /* BNMainCardViewModel.mm */; };
+		D110E21829DB0B330093AAA8 /* BNRedDotBuildHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1DB29DB0B330093AAA8 /* BNRedDotBuildHelper.mm */; };
+		D110E21929DB0B330093AAA8 /* BNUIBuildHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1DF29DB0B330093AAA8 /* BNUIBuildHelper.mm */; };
+		D110E21A29DB0B330093AAA8 /* BNCommonDataTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1E029DB0B330093AAA8 /* BNCommonDataTool.mm */; };
+		D110E21B29DB0B330093AAA8 /* BNRouterHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1E129DB0B330093AAA8 /* BNRouterHelper.mm */; };
+		D110E21C29DB0B330093AAA8 /* DelegateMethodProxy.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1E229DB0B330093AAA8 /* DelegateMethodProxy.mm */; };
 		D15BC81628A502AB0065D2B9 /* TitleItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15BC81428A502AB0065D2B9 /* TitleItem+CoreDataClass.swift */; };
 		D15BC81728A502AB0065D2B9 /* TitleItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15BC81528A502AB0065D2B9 /* TitleItem+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +116,101 @@
 		0AF8A46C2787BEA400FFE877 /* TitlePreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePreviewViewModel.swift; sourceTree = "<group>"; };
 		3EA52D8771913ACA26C7EC24 /* Pods-Swift - Netflix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift - Netflix.release.xcconfig"; path = "Target Support Files/Pods-Swift - Netflix/Pods-Swift - Netflix.release.xcconfig"; sourceTree = "<group>"; };
 		C52A2886E291955D4C7BD1C9 /* Pods_Swift___Netflix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Swift___Netflix.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D110E17E29DB0B310093AAA8 /* BNAuthorCellView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNAuthorCellView.mm; sourceTree = "<group>"; };
+		D110E17F29DB0B310093AAA8 /* MMUIView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MMUIView.mm; sourceTree = "<group>"; };
+		D110E18029DB0B310093AAA8 /* BNAuthorIntroduceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNAuthorIntroduceView.h; sourceTree = "<group>"; };
+		D110E18129DB0B310093AAA8 /* BNAuthorCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNAuthorCellView.h; sourceTree = "<group>"; };
+		D110E18229DB0B310093AAA8 /* MMUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMUIView.h; sourceTree = "<group>"; };
+		D110E18329DB0B310093AAA8 /* BNAuthorIntroduceView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNAuthorIntroduceView.mm; sourceTree = "<group>"; };
+		D110E18429DB0B310093AAA8 /* BNTitleSubView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNTitleSubView.mm; sourceTree = "<group>"; };
+		D110E18529DB0B310093AAA8 /* BNTitleSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNTitleSubView.h; sourceTree = "<group>"; };
+		D110E18629DB0B310093AAA8 /* JBKenBurnsView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JBKenBurnsView.mm; sourceTree = "<group>"; };
+		D110E18729DB0B310093AAA8 /* BNCellWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCellWidgetView.h; sourceTree = "<group>"; };
+		D110E18829DB0B310093AAA8 /* BNSearchAuthorTableViewCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNSearchAuthorTableViewCell.mm; sourceTree = "<group>"; };
+		D110E18929DB0B310093AAA8 /* BNMainSubCardView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNMainSubCardView.mm; sourceTree = "<group>"; };
+		D110E18A29DB0B310093AAA8 /* BNMainSubCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNMainSubCardView.h; sourceTree = "<group>"; };
+		D110E18B29DB0B310093AAA8 /* JBKenBurnsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBKenBurnsView.h; sourceTree = "<group>"; };
+		D110E18C29DB0B310093AAA8 /* BNSearchAuthorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSearchAuthorTableViewCell.h; sourceTree = "<group>"; };
+		D110E18D29DB0B310093AAA8 /* BNCellWidgetView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNCellWidgetView.mm; sourceTree = "<group>"; };
+		D110E18F29DB0B320093AAA8 /* UIImage+EditTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+EditTool.h"; sourceTree = "<group>"; };
+		D110E19029DB0B320093AAA8 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		D110E19129DB0B320093AAA8 /* UIView+ViewToolBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewToolBox.h"; sourceTree = "<group>"; };
+		D110E19229DB0B320093AAA8 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		D110E19329DB0B320093AAA8 /* UIView+Extend.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIView+Extend.mm"; sourceTree = "<group>"; };
+		D110E19429DB0B320093AAA8 /* UIView+ViewToolBox.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIView+ViewToolBox.mm"; sourceTree = "<group>"; };
+		D110E19529DB0B320093AAA8 /* UIView+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extend.h"; sourceTree = "<group>"; };
+		D110E19629DB0B320093AAA8 /* NSString+Interact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Interact.h"; sourceTree = "<group>"; };
+		D110E19729DB0B320093AAA8 /* UIImage+EditTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+EditTool.mm"; sourceTree = "<group>"; };
+		D110E19829DB0B320093AAA8 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		D110E19929DB0B320093AAA8 /* NSString+Interact.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSString+Interact.mm"; sourceTree = "<group>"; };
+		D110E19A29DB0B320093AAA8 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		D110E19C29DB0B320093AAA8 /* BNBasicDataService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNBasicDataService.mm; sourceTree = "<group>"; };
+		D110E19D29DB0B320093AAA8 /* BNSubscribeMMKV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSubscribeMMKV.h; sourceTree = "<group>"; };
+		D110E19E29DB0B320093AAA8 /* BNBasicDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNBasicDataService.h; sourceTree = "<group>"; };
+		D110E1A029DB0B320093AAA8 /* BNYoutubeSearchAuthorCGI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNYoutubeSearchAuthorCGI.mm; sourceTree = "<group>"; };
+		D110E1A129DB0B320093AAA8 /* BNYoutubeGetAuthorInfoCGI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNYoutubeGetAuthorInfoCGI.mm; sourceTree = "<group>"; };
+		D110E1A229DB0B320093AAA8 /* BNYoutubeSearchAuthorCGI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNYoutubeSearchAuthorCGI.h; sourceTree = "<group>"; };
+		D110E1A329DB0B320093AAA8 /* BNYoutubeGetAuthorInfoCGI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNYoutubeGetAuthorInfoCGI.h; sourceTree = "<group>"; };
+		D110E1A529DB0B320093AAA8 /* BNBlibliSearchAuthorCGI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNBlibliSearchAuthorCGI.mm; sourceTree = "<group>"; };
+		D110E1A629DB0B320093AAA8 /* BNBlibliGetAuthorInfoCGI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNBlibliGetAuthorInfoCGI.mm; sourceTree = "<group>"; };
+		D110E1A729DB0B320093AAA8 /* BNBlibliGetAuthorInfoCGI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNBlibliGetAuthorInfoCGI.h; sourceTree = "<group>"; };
+		D110E1A829DB0B320093AAA8 /* BNBlibliSearchAuthorCGI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNBlibliSearchAuthorCGI.h; sourceTree = "<group>"; };
+		D110E1A929DB0B320093AAA8 /* BNSubscribeWCDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSubscribeWCDB.h; sourceTree = "<group>"; };
+		D110E1AA29DB0B320093AAA8 /* BNSubscribeMMKV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNSubscribeMMKV.m; sourceTree = "<group>"; };
+		D110E1AB29DB0B320093AAA8 /* BNSubscribeWCDB.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNSubscribeWCDB.mm; sourceTree = "<group>"; };
+		D110E1AD29DB0B320093AAA8 /* BNMainViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNMainViewController.mm; sourceTree = "<group>"; };
+		D110E1AE29DB0B320093AAA8 /* BNAuthorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNAuthorListViewController.h; sourceTree = "<group>"; };
+		D110E1AF29DB0B320093AAA8 /* BNAddSubscribeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNAddSubscribeViewController.h; sourceTree = "<group>"; };
+		D110E1B029DB0B320093AAA8 /* BNSearchAuthorViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNSearchAuthorViewController.mm; sourceTree = "<group>"; };
+		D110E1B129DB0B320093AAA8 /* BNQuestionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNQuestionListViewController.h; sourceTree = "<group>"; };
+		D110E1B229DB0B320093AAA8 /* WKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
+		D110E1B329DB0B320093AAA8 /* BNAuthorListViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNAuthorListViewController.mm; sourceTree = "<group>"; };
+		D110E1B429DB0B320093AAA8 /* BNAddSubscribeViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNAddSubscribeViewController.mm; sourceTree = "<group>"; };
+		D110E1B529DB0B320093AAA8 /* BNQuestionListViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNQuestionListViewController.mm; sourceTree = "<group>"; };
+		D110E1B629DB0B320093AAA8 /* BNMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNMainViewController.h; sourceTree = "<group>"; };
+		D110E1B729DB0B320093AAA8 /* WKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
+		D110E1B829DB0B320093AAA8 /* BNSearchAuthorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSearchAuthorViewController.h; sourceTree = "<group>"; };
+		D110E1BB29DB0B320093AAA8 /* icons_filled_more.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_more.svg; sourceTree = "<group>"; };
+		D110E1BC29DB0B320093AAA8 /* RoundLoading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = RoundLoading.gif; sourceTree = "<group>"; };
+		D110E1BD29DB0B320093AAA8 /* icons_filled_help.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_help.svg; sourceTree = "<group>"; };
+		D110E1BE29DB0B320093AAA8 /* icons_outlined_close.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_close.svg; sourceTree = "<group>"; };
+		D110E1BF29DB0B320093AAA8 /* icons_filled_together.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_together.svg; sourceTree = "<group>"; };
+		D110E1C029DB0B320093AAA8 /* icons_filled_at.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_at.svg; sourceTree = "<group>"; };
+		D110E1C129DB0B320093AAA8 /* icons_filled_add2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_add2.svg; sourceTree = "<group>"; };
+		D110E1C229DB0B320093AAA8 /* icons_filled_arrow.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_arrow.svg; sourceTree = "<group>"; };
+		D110E1C329DB0B320093AAA8 /* icons_outlined_easy_read.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_outlined_easy_read.svg; sourceTree = "<group>"; };
+		D110E1C429DB0B320093AAA8 /* icons_filled_share.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_share.svg; sourceTree = "<group>"; };
+		D110E1C529DB0B320093AAA8 /* icons_filled_book.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_book.svg; sourceTree = "<group>"; };
+		D110E1C629DB0B320093AAA8 /* icons_loading_white.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_loading_white.svg; sourceTree = "<group>"; };
+		D110E1C729DB0B320093AAA8 /* icons_filled_tool.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_tool.svg; sourceTree = "<group>"; };
+		D110E1C829DB0B320093AAA8 /* icons_filled_subscriptions.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_subscriptions.svg; sourceTree = "<group>"; };
+		D110E1C929DB0B320093AAA8 /* icons_filled_link.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icons_filled_link.svg; sourceTree = "<group>"; };
+		D110E1CA29DB0B320093AAA8 /* loading_black.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading_black.gif; sourceTree = "<group>"; };
+		D110E1CC29DB0B320093AAA8 /* blibliDefaultAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blibliDefaultAvatar.png; sourceTree = "<group>"; };
+		D110E1CE29DB0B330093AAA8 /* BNMainListViewModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNMainListViewModel.mm; sourceTree = "<group>"; };
+		D110E1CF29DB0B330093AAA8 /* BNSubscribeInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSubscribeInfoModel.h; sourceTree = "<group>"; };
+		D110E1D029DB0B330093AAA8 /* BNSearchAuthorViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSearchAuthorViewModel.h; sourceTree = "<group>"; };
+		D110E1D129DB0B330093AAA8 /* BNAuthorListViewModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNAuthorListViewModel.mm; sourceTree = "<group>"; };
+		D110E1D229DB0B330093AAA8 /* BNAuthorListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNAuthorListViewModel.h; sourceTree = "<group>"; };
+		D110E1D329DB0B330093AAA8 /* BNSubscribeInfoModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNSubscribeInfoModel.mm; sourceTree = "<group>"; };
+		D110E1D429DB0B330093AAA8 /* BNAuthorDataInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNAuthorDataInfo.h; sourceTree = "<group>"; };
+		D110E1D529DB0B330093AAA8 /* BNMainListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNMainListViewModel.h; sourceTree = "<group>"; };
+		D110E1D629DB0B330093AAA8 /* BNAuthorDataInfo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNAuthorDataInfo.mm; sourceTree = "<group>"; };
+		D110E1D729DB0B330093AAA8 /* BNSearchAuthorViewModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNSearchAuthorViewModel.mm; sourceTree = "<group>"; };
+		D110E1D829DB0B330093AAA8 /* BNMainCardViewModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNMainCardViewModel.mm; sourceTree = "<group>"; };
+		D110E1D929DB0B330093AAA8 /* BNMainCardViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNMainCardViewModel.h; sourceTree = "<group>"; };
+		D110E1DB29DB0B330093AAA8 /* BNRedDotBuildHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNRedDotBuildHelper.mm; sourceTree = "<group>"; };
+		D110E1DC29DB0B330093AAA8 /* BNRouterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRouterHelper.h; sourceTree = "<group>"; };
+		D110E1DD29DB0B330093AAA8 /* BNRedDotBuildHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRedDotBuildHelper.h; sourceTree = "<group>"; };
+		D110E1DE29DB0B330093AAA8 /* DelegateMethodProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelegateMethodProxy.h; sourceTree = "<group>"; };
+		D110E1DF29DB0B330093AAA8 /* BNUIBuildHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNUIBuildHelper.mm; sourceTree = "<group>"; };
+		D110E1E029DB0B330093AAA8 /* BNCommonDataTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNCommonDataTool.mm; sourceTree = "<group>"; };
+		D110E1E129DB0B330093AAA8 /* BNRouterHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNRouterHelper.mm; sourceTree = "<group>"; };
+		D110E1E229DB0B330093AAA8 /* DelegateMethodProxy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DelegateMethodProxy.mm; sourceTree = "<group>"; };
+		D110E1E329DB0B330093AAA8 /* BNCommonDataTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCommonDataTool.h; sourceTree = "<group>"; };
+		D110E1E429DB0B330093AAA8 /* BNSubDataDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSubDataDefine.h; sourceTree = "<group>"; };
+		D110E1E529DB0B330093AAA8 /* BNUIBuildHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNUIBuildHelper.h; sourceTree = "<group>"; };
+		D15BAF5529DB095200B07601 /* Swift - Netflix-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swift - Netflix-Bridging-Header.h"; sourceTree = "<group>"; };
 		D15BC81428A502AB0065D2B9 /* TitleItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TitleItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D15BC81528A502AB0065D2B9 /* TitleItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TitleItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D5D552C8790E9407607217FA /* Pods-Swift - Netflix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift - Netflix.debug.xcconfig"; path = "Target Support Files/Pods-Swift - Netflix/Pods-Swift - Netflix.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +281,7 @@
 		0A62099A2734603D00A88D71 = {
 			isa = PBXGroup;
 			children = (
+				D15BAF5929DB095A00B07601 /* Bilibili */,
 				0A6209A52734603E00A88D71 /* Swift - Netflix */,
 				0A6209A42734603E00A88D71 /* Products */,
 				B96787CC5E971A73E693E428 /* Pods */,
@@ -179,6 +330,7 @@
 				0A6209BD2734617600A88D71 /* UpcomingViewController.swift */,
 				0A6209BF2734618C00A88D71 /* SearchViewController.swift */,
 				0A6209C1273461A800A88D71 /* DownloadsViewController.swift */,
+				D15BAF5529DB095200B07601 /* Swift - Netflix-Bridging-Header.h */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -207,6 +359,195 @@
 				3EA52D8771913ACA26C7EC24 /* Pods-Swift - Netflix.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D110E17D29DB0B310093AAA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D110E18129DB0B310093AAA8 /* BNAuthorCellView.h */,
+				D110E17E29DB0B310093AAA8 /* BNAuthorCellView.mm */,
+				D110E18029DB0B310093AAA8 /* BNAuthorIntroduceView.h */,
+				D110E18329DB0B310093AAA8 /* BNAuthorIntroduceView.mm */,
+				D110E18729DB0B310093AAA8 /* BNCellWidgetView.h */,
+				D110E18D29DB0B310093AAA8 /* BNCellWidgetView.mm */,
+				D110E18A29DB0B310093AAA8 /* BNMainSubCardView.h */,
+				D110E18929DB0B310093AAA8 /* BNMainSubCardView.mm */,
+				D110E18C29DB0B310093AAA8 /* BNSearchAuthorTableViewCell.h */,
+				D110E18829DB0B310093AAA8 /* BNSearchAuthorTableViewCell.mm */,
+				D110E18529DB0B310093AAA8 /* BNTitleSubView.h */,
+				D110E18429DB0B310093AAA8 /* BNTitleSubView.mm */,
+				D110E18B29DB0B310093AAA8 /* JBKenBurnsView.h */,
+				D110E18629DB0B310093AAA8 /* JBKenBurnsView.mm */,
+				D110E18229DB0B310093AAA8 /* MMUIView.h */,
+				D110E17F29DB0B310093AAA8 /* MMUIView.mm */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D110E18E29DB0B320093AAA8 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D110E18F29DB0B320093AAA8 /* UIImage+EditTool.h */,
+				D110E19029DB0B320093AAA8 /* UIView+Extension.h */,
+				D110E19129DB0B320093AAA8 /* UIView+ViewToolBox.h */,
+				D110E19229DB0B320093AAA8 /* UIBarButtonItem+Extension.h */,
+				D110E19329DB0B320093AAA8 /* UIView+Extend.mm */,
+				D110E19429DB0B320093AAA8 /* UIView+ViewToolBox.mm */,
+				D110E19529DB0B320093AAA8 /* UIView+Extend.h */,
+				D110E19629DB0B320093AAA8 /* NSString+Interact.h */,
+				D110E19729DB0B320093AAA8 /* UIImage+EditTool.mm */,
+				D110E19829DB0B320093AAA8 /* UIBarButtonItem+Extension.m */,
+				D110E19929DB0B320093AAA8 /* NSString+Interact.mm */,
+				D110E19A29DB0B320093AAA8 /* UIView+Extension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		D110E19B29DB0B320093AAA8 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				D110E19C29DB0B320093AAA8 /* BNBasicDataService.mm */,
+				D110E19D29DB0B320093AAA8 /* BNSubscribeMMKV.h */,
+				D110E19E29DB0B320093AAA8 /* BNBasicDataService.h */,
+				D110E19F29DB0B320093AAA8 /* Youtube */,
+				D110E1A429DB0B320093AAA8 /* Blibli */,
+				D110E1A929DB0B320093AAA8 /* BNSubscribeWCDB.h */,
+				D110E1AA29DB0B320093AAA8 /* BNSubscribeMMKV.m */,
+				D110E1AB29DB0B320093AAA8 /* BNSubscribeWCDB.mm */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		D110E19F29DB0B320093AAA8 /* Youtube */ = {
+			isa = PBXGroup;
+			children = (
+				D110E1A029DB0B320093AAA8 /* BNYoutubeSearchAuthorCGI.mm */,
+				D110E1A129DB0B320093AAA8 /* BNYoutubeGetAuthorInfoCGI.mm */,
+				D110E1A229DB0B320093AAA8 /* BNYoutubeSearchAuthorCGI.h */,
+				D110E1A329DB0B320093AAA8 /* BNYoutubeGetAuthorInfoCGI.h */,
+			);
+			path = Youtube;
+			sourceTree = "<group>";
+		};
+		D110E1A429DB0B320093AAA8 /* Blibli */ = {
+			isa = PBXGroup;
+			children = (
+				D110E1A529DB0B320093AAA8 /* BNBlibliSearchAuthorCGI.mm */,
+				D110E1A629DB0B320093AAA8 /* BNBlibliGetAuthorInfoCGI.mm */,
+				D110E1A729DB0B320093AAA8 /* BNBlibliGetAuthorInfoCGI.h */,
+				D110E1A829DB0B320093AAA8 /* BNBlibliSearchAuthorCGI.h */,
+			);
+			path = Blibli;
+			sourceTree = "<group>";
+		};
+		D110E1AC29DB0B320093AAA8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D110E1AF29DB0B320093AAA8 /* BNAddSubscribeViewController.h */,
+				D110E1B429DB0B320093AAA8 /* BNAddSubscribeViewController.mm */,
+				D110E1AE29DB0B320093AAA8 /* BNAuthorListViewController.h */,
+				D110E1B329DB0B320093AAA8 /* BNAuthorListViewController.mm */,
+				D110E1B629DB0B320093AAA8 /* BNMainViewController.h */,
+				D110E1AD29DB0B320093AAA8 /* BNMainViewController.mm */,
+				D110E1B129DB0B320093AAA8 /* BNQuestionListViewController.h */,
+				D110E1B529DB0B320093AAA8 /* BNQuestionListViewController.mm */,
+				D110E1B829DB0B320093AAA8 /* BNSearchAuthorViewController.h */,
+				D110E1B029DB0B320093AAA8 /* BNSearchAuthorViewController.mm */,
+				D110E1B729DB0B320093AAA8 /* WKWebViewController.h */,
+				D110E1B229DB0B320093AAA8 /* WKWebViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D110E1B929DB0B320093AAA8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D110E1BA29DB0B320093AAA8 /* SVG */,
+				D110E1CB29DB0B320093AAA8 /* PNG */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D110E1BA29DB0B320093AAA8 /* SVG */ = {
+			isa = PBXGroup;
+			children = (
+				D110E1BB29DB0B320093AAA8 /* icons_filled_more.svg */,
+				D110E1BC29DB0B320093AAA8 /* RoundLoading.gif */,
+				D110E1BD29DB0B320093AAA8 /* icons_filled_help.svg */,
+				D110E1BE29DB0B320093AAA8 /* icons_outlined_close.svg */,
+				D110E1BF29DB0B320093AAA8 /* icons_filled_together.svg */,
+				D110E1C029DB0B320093AAA8 /* icons_filled_at.svg */,
+				D110E1C129DB0B320093AAA8 /* icons_filled_add2.svg */,
+				D110E1C229DB0B320093AAA8 /* icons_filled_arrow.svg */,
+				D110E1C329DB0B320093AAA8 /* icons_outlined_easy_read.svg */,
+				D110E1C429DB0B320093AAA8 /* icons_filled_share.svg */,
+				D110E1C529DB0B320093AAA8 /* icons_filled_book.svg */,
+				D110E1C629DB0B320093AAA8 /* icons_loading_white.svg */,
+				D110E1C729DB0B320093AAA8 /* icons_filled_tool.svg */,
+				D110E1C829DB0B320093AAA8 /* icons_filled_subscriptions.svg */,
+				D110E1C929DB0B320093AAA8 /* icons_filled_link.svg */,
+				D110E1CA29DB0B320093AAA8 /* loading_black.gif */,
+			);
+			path = SVG;
+			sourceTree = "<group>";
+		};
+		D110E1CB29DB0B320093AAA8 /* PNG */ = {
+			isa = PBXGroup;
+			children = (
+				D110E1CC29DB0B320093AAA8 /* blibliDefaultAvatar.png */,
+			);
+			path = PNG;
+			sourceTree = "<group>";
+		};
+		D110E1CD29DB0B330093AAA8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D110E1CE29DB0B330093AAA8 /* BNMainListViewModel.mm */,
+				D110E1CF29DB0B330093AAA8 /* BNSubscribeInfoModel.h */,
+				D110E1D029DB0B330093AAA8 /* BNSearchAuthorViewModel.h */,
+				D110E1D129DB0B330093AAA8 /* BNAuthorListViewModel.mm */,
+				D110E1D229DB0B330093AAA8 /* BNAuthorListViewModel.h */,
+				D110E1D329DB0B330093AAA8 /* BNSubscribeInfoModel.mm */,
+				D110E1D429DB0B330093AAA8 /* BNAuthorDataInfo.h */,
+				D110E1D529DB0B330093AAA8 /* BNMainListViewModel.h */,
+				D110E1D629DB0B330093AAA8 /* BNAuthorDataInfo.mm */,
+				D110E1D729DB0B330093AAA8 /* BNSearchAuthorViewModel.mm */,
+				D110E1D829DB0B330093AAA8 /* BNMainCardViewModel.mm */,
+				D110E1D929DB0B330093AAA8 /* BNMainCardViewModel.h */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D110E1DA29DB0B330093AAA8 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D110E1DB29DB0B330093AAA8 /* BNRedDotBuildHelper.mm */,
+				D110E1DC29DB0B330093AAA8 /* BNRouterHelper.h */,
+				D110E1DD29DB0B330093AAA8 /* BNRedDotBuildHelper.h */,
+				D110E1DE29DB0B330093AAA8 /* DelegateMethodProxy.h */,
+				D110E1DF29DB0B330093AAA8 /* BNUIBuildHelper.mm */,
+				D110E1E029DB0B330093AAA8 /* BNCommonDataTool.mm */,
+				D110E1E129DB0B330093AAA8 /* BNRouterHelper.mm */,
+				D110E1E229DB0B330093AAA8 /* DelegateMethodProxy.mm */,
+				D110E1E329DB0B330093AAA8 /* BNCommonDataTool.h */,
+				D110E1E429DB0B330093AAA8 /* BNSubDataDefine.h */,
+				D110E1E529DB0B330093AAA8 /* BNUIBuildHelper.h */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		D15BAF5929DB095A00B07601 /* Bilibili */ = {
+			isa = PBXGroup;
+			children = (
+				D110E19B29DB0B320093AAA8 /* APIService */,
+				D110E18E29DB0B320093AAA8 /* Category */,
+				D110E1DA29DB0B330093AAA8 /* Helper */,
+				D110E1B929DB0B320093AAA8 /* Resources */,
+				D110E17D29DB0B310093AAA8 /* View */,
+				D110E1AC29DB0B320093AAA8 /* ViewController */,
+				D110E1CD29DB0B330093AAA8 /* ViewModel */,
+			);
+			path = Bilibili;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,7 +611,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D110E20E29DB0B330093AAA8 /* icons_filled_subscriptions.svg in Resources */,
+				D110E20729DB0B330093AAA8 /* icons_filled_add2.svg in Resources */,
+				D110E20629DB0B330093AAA8 /* icons_filled_at.svg in Resources */,
+				D110E20129DB0B330093AAA8 /* icons_filled_more.svg in Resources */,
+				D110E20829DB0B330093AAA8 /* icons_filled_arrow.svg in Resources */,
+				D110E20B29DB0B330093AAA8 /* icons_filled_book.svg in Resources */,
+				D110E21029DB0B330093AAA8 /* loading_black.gif in Resources */,
+				D110E20429DB0B330093AAA8 /* icons_outlined_close.svg in Resources */,
+				D110E20929DB0B330093AAA8 /* icons_outlined_easy_read.svg in Resources */,
+				D110E20C29DB0B330093AAA8 /* icons_loading_white.svg in Resources */,
+				D110E21129DB0B330093AAA8 /* blibliDefaultAvatar.png in Resources */,
 				0A6209B02734603E00A88D71 /* Assets.xcassets in Resources */,
+				D110E20529DB0B330093AAA8 /* icons_filled_together.svg in Resources */,
+				D110E20F29DB0B330093AAA8 /* icons_filled_link.svg in Resources */,
+				D110E20329DB0B330093AAA8 /* icons_filled_help.svg in Resources */,
+				D110E20D29DB0B330093AAA8 /* icons_filled_tool.svg in Resources */,
+				D110E20229DB0B330093AAA8 /* RoundLoading.gif in Resources */,
+				D110E20A29DB0B330093AAA8 /* icons_filled_share.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,27 +683,65 @@
 			files = (
 				0A7C94D527764E8C0072AE85 /* TitleTableViewCell.swift in Sources */,
 				0A6209C02734618C00A88D71 /* SearchViewController.swift in Sources */,
+				D110E1EC29DB0B330093AAA8 /* BNMainSubCardView.mm in Sources */,
+				D110E1FC29DB0B330093AAA8 /* BNSearchAuthorViewController.mm in Sources */,
+				D110E1E829DB0B330093AAA8 /* BNAuthorIntroduceView.mm in Sources */,
+				D110E1F629DB0B330093AAA8 /* BNYoutubeGetAuthorInfoCGI.mm in Sources */,
+				D110E1F429DB0B330093AAA8 /* BNBasicDataService.mm in Sources */,
+				D110E21629DB0B330093AAA8 /* BNSearchAuthorViewModel.mm in Sources */,
 				D15BC81728A502AB0065D2B9 /* TitleItem+CoreDataProperties.swift in Sources */,
+				D110E1EB29DB0B330093AAA8 /* BNSearchAuthorTableViewCell.mm in Sources */,
+				D110E1F329DB0B330093AAA8 /* UIView+Extension.m in Sources */,
 				0A5AAAA7276AE1D500149719 /* TitleCollectionViewCell.swift in Sources */,
 				0A28420E2799EDB10023560C /* DataPersistenceManager.swift in Sources */,
+				D110E21B29DB0B330093AAA8 /* BNRouterHelper.mm in Sources */,
+				D110E1FE29DB0B330093AAA8 /* BNAuthorListViewController.mm in Sources */,
 				0A6209AB2734603E00A88D71 /* MainTabBarViewController.swift in Sources */,
 				0A1942D0274A620100B3FA93 /* CollectionViewTableViewCell.swift in Sources */,
+				D110E1F529DB0B330093AAA8 /* BNYoutubeSearchAuthorCGI.mm in Sources */,
+				D110E1F729DB0B330093AAA8 /* BNBlibliSearchAuthorCGI.mm in Sources */,
+				D110E1FB29DB0B330093AAA8 /* BNMainViewController.mm in Sources */,
+				D110E1ED29DB0B330093AAA8 /* BNCellWidgetView.mm in Sources */,
+				D110E20029DB0B330093AAA8 /* BNQuestionListViewController.mm in Sources */,
 				0AD9A100276047A900131EEF /* APICaller.swift in Sources */,
 				0A28420C2799EBED0023560C /* NetflixCloneModel.xcdatamodeld in Sources */,
 				0A6291FA2756F1B900082232 /* HeroHeaderUIView.swift in Sources */,
 				0A6209C2273461A800A88D71 /* DownloadsViewController.swift in Sources */,
 				0A6209A72734603E00A88D71 /* AppDelegate.swift in Sources */,
+				D110E1FF29DB0B330093AAA8 /* BNAddSubscribeViewController.mm in Sources */,
 				0AE30378277F600E00CBC18F /* SearchResultsViewController.swift in Sources */,
+				D110E1F829DB0B330093AAA8 /* BNBlibliGetAuthorInfoCGI.mm in Sources */,
+				D110E1F229DB0B330093AAA8 /* NSString+Interact.mm in Sources */,
 				0A5AAA9D2769057B00149719 /* Extensions.swift in Sources */,
+				D110E1F029DB0B330093AAA8 /* UIImage+EditTool.mm in Sources */,
+				D110E21529DB0B330093AAA8 /* BNAuthorDataInfo.mm in Sources */,
 				0AD8A1BE2786FDB000612F1E /* YoutubeSearchResponse.swift in Sources */,
 				0A6209A92734603E00A88D71 /* SceneDelegate.swift in Sources */,
+				D110E21A29DB0B330093AAA8 /* BNCommonDataTool.mm in Sources */,
+				D110E21429DB0B330093AAA8 /* BNSubscribeInfoModel.mm in Sources */,
 				0AF8A46D2787BEA400FFE877 /* TitlePreviewViewModel.swift in Sources */,
+				D110E21C29DB0B330093AAA8 /* DelegateMethodProxy.mm in Sources */,
+				D110E21329DB0B330093AAA8 /* BNAuthorListViewModel.mm in Sources */,
 				0A6209BE2734617600A88D71 /* UpcomingViewController.swift in Sources */,
+				D110E21729DB0B330093AAA8 /* BNMainCardViewModel.mm in Sources */,
+				D110E1F129DB0B330093AAA8 /* UIBarButtonItem+Extension.m in Sources */,
+				D110E21829DB0B330093AAA8 /* BNRedDotBuildHelper.mm in Sources */,
+				D110E1EE29DB0B330093AAA8 /* UIView+Extend.mm in Sources */,
+				D110E1E629DB0B330093AAA8 /* BNAuthorCellView.mm in Sources */,
+				D110E1EF29DB0B330093AAA8 /* UIView+ViewToolBox.mm in Sources */,
 				0AF8A46B2787BC2100FFE877 /* TitlePreviewViewController.swift in Sources */,
 				0AD9A10427604E4D00131EEF /* Title.swift in Sources */,
+				D110E1FA29DB0B330093AAA8 /* BNSubscribeWCDB.mm in Sources */,
+				D110E1E729DB0B330093AAA8 /* MMUIView.mm in Sources */,
+				D110E1EA29DB0B330093AAA8 /* JBKenBurnsView.mm in Sources */,
+				D110E1E929DB0B330093AAA8 /* BNTitleSubView.mm in Sources */,
 				D15BC81628A502AB0065D2B9 /* TitleItem+CoreDataClass.swift in Sources */,
+				D110E21229DB0B330093AAA8 /* BNMainListViewModel.mm in Sources */,
+				D110E1F929DB0B330093AAA8 /* BNSubscribeMMKV.m in Sources */,
 				0A6209BC2734615B00A88D71 /* HomeViewController.swift in Sources */,
 				0A7C94D72776507A0072AE85 /* TitleViewModel.swift in Sources */,
+				D110E1FD29DB0B330093AAA8 /* WKWebViewController.m in Sources */,
+				D110E21929DB0B330093AAA8 /* BNUIBuildHelper.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +890,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Wangjie3119004841.Swift---Netflix";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Swift - Netflix/Controllers/Core/Swift - Netflix-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -525,6 +922,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Wangjie3119004841.Swift---Netflix";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Swift - Netflix/Controllers/Core/Swift - Netflix-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
