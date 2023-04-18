@@ -27,15 +27,12 @@ class MainTabBarViewController: UITabBarController {
         vc3.tabBarItem.image = UIImage(systemName: "star")
         vc4.tabBarItem.image = UIImage(systemName: "play.circle")
         
-        vc1.title = "Home"
-        vc2.title = "Top Search"
-        vc3.title = "Marks"
-        vc4.title = "喵酱爱订阅"
+        vc1.title = "首页"
+        vc2.title = "搜索"
+        vc3.title = "收藏"
+        vc4.title = "只看你想看"
         
         tabBar.tintColor = .label // 蓝色和白色的差别
-        
-//        viewControllers = []
-
     }
 }
 

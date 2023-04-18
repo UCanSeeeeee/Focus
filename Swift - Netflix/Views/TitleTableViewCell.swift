@@ -76,28 +76,6 @@ extension TitleTableViewCell {
             make.centerY.equalTo(contentView.snp.centerY)
             make.width.equalTo(35)
         }
-//        let titlesPosterUIImageViewConstraints = [
-//            titlesPosterUIImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-//            titlesPosterUIImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-//            titlesPosterUIImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-//            titlesPosterUIImageView.widthAnchor.constraint(equalToConstant: 100)
-//        ]
-//
-//        let titleLabelConstraints = [
-//            titleLabel.leadingAnchor.constraint(equalTo: titlesPosterUIImageView.trailingAnchor, constant: 20),
-//            titleLabel.trailingAnchor.constraint(equalTo: playTitleButton.leadingAnchor, constant: -10),
-//            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-//        ]
-        
-//        let playTitleButtonConstraints = [
-//            playTitleButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-//            playTitleButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-//            playTitleButton.widthAnchor.constraint(equalToConstant: 35)
-//        ]
-        
-//        NSLayoutConstraint.activate(titlesPosterUIImageViewConstraints)
-//        NSLayoutConstraint.activate(titleLabelConstraints)
-//        NSLayoutConstraint.activate(playTitleButtonConstraints)
     }
     
     // 注册cell后传入数据

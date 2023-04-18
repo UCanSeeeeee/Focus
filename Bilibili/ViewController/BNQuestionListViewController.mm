@@ -117,6 +117,7 @@
     self.callAuthorBtn.top = marginTop;
     marginTop = self.callAuthorBtn.bottom + BNSubViewMargin;
     [self.scrollView addSubview:self.callAuthorBtn];
+    self.callAuthorBtn.hidden = YES;
     
     self.scrollView.contentSize = CGSizeMake(self.view.width, marginTop);
 }

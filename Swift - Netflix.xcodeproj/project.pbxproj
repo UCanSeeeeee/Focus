@@ -232,9 +232,9 @@
 			isa = PBXGroup;
 			children = (
 				0A1942CF274A620100B3FA93 /* CollectionViewTableViewCell.swift */,
-				0A5AAAA6276AE1D500149719 /* TitleCollectionViewCell.swift */,
 				0A6291F92756F1B900082232 /* HeroHeaderUIView.swift */,
 				0A7C94D427764E8C0072AE85 /* TitleTableViewCell.swift */,
+				0A5AAAA6276AE1D500149719 /* TitleCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -878,6 +878,7 @@
 				DEVELOPMENT_TEAM = W3CHGH63KV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Swift - Netflix/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Focus;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -910,6 +911,7 @@
 				DEVELOPMENT_TEAM = W3CHGH63KV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Swift - Netflix/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Focus;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

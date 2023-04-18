@@ -16,11 +16,9 @@ class SearchResultsViewController: UIViewController {
     public var titles: [Title] = [Title]()
     public weak var delegate: SearchResultsViewControllerDelegate?
     lazy var searchResultsCollectionView: UICollectionView = {
-       
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 3, height: 200)
         layout.minimumInteritemSpacing = 0
-
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.identifier)
         collectionView.delegate = self
@@ -58,7 +56,6 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-    
         let title = titles[indexPath.row]
         let titleName = title.original_title ?? ""
         APICaller.shared.getMovie(with: titleName) { [weak self] result in

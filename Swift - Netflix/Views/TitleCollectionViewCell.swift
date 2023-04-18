@@ -10,7 +10,6 @@ import UIKit
 
 class TitleCollectionViewCell: UICollectionViewCell {
     
-    
     static let identifier = "TitleCollectionViewCell"
     
     private let posterImageView: UIImageView = {
@@ -22,7 +21,6 @@ class TitleCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(posterImageView)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -34,12 +32,10 @@ class TitleCollectionViewCell: UICollectionViewCell {
         posterImageView.frame = contentView.bounds
     }
     
-    
     public func configure(with model: String) {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)") else {
             return
         }
         posterImageView.kf.setImage(with: url)
     }
-    
 }

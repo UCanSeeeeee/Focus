@@ -33,7 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"喵酱爱订阅";
+    self.title = @"只看你想看";
     
     self.view.backgroundColor = [UIColor blackColor];
     [self setUpTopRefreshHeaderToScrollView];

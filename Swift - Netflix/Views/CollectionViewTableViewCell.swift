@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 protocol CollectionViewTableViewCellDelegate: AnyObject {
     func collectionViewTableViewCellDidTapCell(viewModel: TitlePreviewViewModel, indexPath: IndexPath, Titles: [Title])
 }
@@ -17,7 +16,6 @@ class CollectionViewTableViewCell: UITableViewCell {
     static let identifier = "CollectionViewTableViewCell"
     weak var delegate: CollectionViewTableViewCellDelegate?
     private var titles: [Title] = [Title]()
-
     lazy var collectionView: UICollectionView = {
         /// 将items组织成网格，并横向滚动
         let layout = UICollectionViewFlowLayout()
@@ -81,6 +79,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else {
             return UICollectionViewCell()
         }
+
         // 传入海报数据，设置cell的image
         guard let model = titles[indexPath.row].poster_path else {
             return UICollectionViewCell()
@@ -127,13 +126,16 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+
+    }
+    
     // 长按功能
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        
         let config = UIContextMenuConfiguration(
             identifier: nil,
             previewProvider: nil) {[weak self] _ in
-                let downloadAction = UIAction(title: "Mark",image: UIImage(systemName: "arrow.down.to.line"), state: .off) { _ in
+                let downloadAction = UIAction(title: "收藏",image: UIImage(systemName: "arrow.down.to.line"), state: .off) { _ in
                     self?.downloadTitleAt(indexPath: indexPath)
                 }
                 return UIMenu(title: "", options: .displayInline, children: [downloadAction])

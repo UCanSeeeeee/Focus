@@ -83,9 +83,6 @@
     [self.tableView reloadData];
     [self layoutAllSubViews];
     
-//    dispatch_async(dispatch_get_main_queue(), ^ {
-//        [self layoutAllSubViews];
-//    });
 }
 
 - (UIView *)topContainerView {

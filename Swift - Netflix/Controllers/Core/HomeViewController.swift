@@ -21,7 +21,7 @@ class HomeViewController: UIViewController, MFMailComposeViewControllerDelegate{
     private var headerView: HeroHeaderUIView?
 
     /// 决定了 numberOfSections 和 titleForHeaderInSection
-    let sectionTitles: [String] = ["Trending Movies", "Trending Tv", "Popular", "Upcoming Movies", "Top rated"]
+    let sectionTitles: [String] = ["这里的都是电影热门，随便看，不踩雷", "主要是节目和电视剧", "当下最受欢迎列表", "即将到来的电影", "获得较高评分的好电影"]
     
     lazy var homeFeedTable: UITableView = {
         let tableview = UITableView()
@@ -33,7 +33,7 @@ class HomeViewController: UIViewController, MFMailComposeViewControllerDelegate{
     
     private lazy var otherResourceButton: UIButton = {
         let button = UIButton()
-        button.setTitle("OtherResource", for: .normal)
+        button.setTitle("其他资源", for: .normal)
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 5
@@ -44,7 +44,7 @@ class HomeViewController: UIViewController, MFMailComposeViewControllerDelegate{
     
     private lazy var emailAuthorButton: UIButton = {
         let button = UIButton()
-        button.setTitle("EmailToAuthor", for: .normal)
+        button.setTitle("联系作者", for: .normal)
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 5
@@ -56,7 +56,7 @@ class HomeViewController: UIViewController, MFMailComposeViewControllerDelegate{
     // 创建 UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Home"
+        navigationItem.title = "首页"
         view.backgroundColor = .systemBackground
         view.addSubview(homeFeedTable)
         view.addSubview(emailAuthorButton)
@@ -78,7 +78,7 @@ class HomeViewController: UIViewController, MFMailComposeViewControllerDelegate{
 extension HomeViewController {
     /// 添加ButtonItems
     public func configureNavbar() {
-        var image = UIImage(named: "netflixLogo")
+        var image = UIImage(named: "tencentvqq")
         image = image?.withRenderingMode(.alwaysOriginal)
          // leftButton
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: #selector(openTencentTV))
@@ -92,14 +92,17 @@ extension HomeViewController {
     }
     
     @objc func introduceTapped() {
-        let alert = UIAlertController(title: "App Introduce", message: "This program is only used for paid movie preview, all data from TMDB public Api, no charge to users.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "软件介绍", message: "本程序仅用于付费电影试映，所有数据来自TMDB公共Api，不向用户收费。", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
     @objc func otherResourceTapped() {
-        guard let url = URL(string: "https://chiehwang.top/resources_center") else { return }
-        UIApplication.shared.open(url)
+//        guard let url = URL(string: "https://chiehwang.top/resources_center") else { return }
+//        UIApplication.shared.open(url)
+        let alert = UIAlertController(title: "资源库", message: "电子书：https://zhelper.net\n电影片源：https://yiso.fun\nMac软件：https://www.macyy.cn", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "用户若乐意补充分享请与作者联系", style: .default))
+        present(alert, animated: true, completion: nil)
     }
     
     @objc func openTencentTV() {
@@ -108,12 +111,12 @@ extension HomeViewController {
     }
     
     @objc func openChiehBlog() {
-        let alert = UIAlertController(title: "Author's Blog", message: "Do you want to know more about the author's projects?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
+        let alert = UIAlertController(title: "作者博客", message: "你想了解更多作者的项目吗?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "当然", style: .default, handler: { _ in
             guard let url = URL(string: "https://chiehwang.top") else { return }
             UIApplication.shared.open(url)
         }))
-        alert.addAction(UIAlertAction(title: "No", style: .default))
+        alert.addAction(UIAlertAction(title: "才不", style: .default))
         present(alert, animated: true, completion: nil)
     }
     
@@ -124,7 +127,7 @@ extension HomeViewController {
             mail.setToRecipients(["chieh504@qq.com"])
             present(mail, animated: true)
         } else {
-            let alert = UIAlertController(title: "Cannot Send Email", message: "Your device is not configured to send email. Please configure an email account and try again.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "遇到了一些问题", message: "您的设备未配置邮件。请配置电子邮件帐户后重试。", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
         }
@@ -138,12 +141,12 @@ extension HomeViewController {
         if let headerView = headerView {
             emailAuthorButton.snp.makeConstraints { make in
                 make.left.equalTo(headerView.snp.left).offset((UIScreen.main.bounds.width - 240 - 40)/2)
-                make.bottom.equalTo(headerView.snp.bottom).offset(-50)
+                make.bottom.equalTo(headerView.snp.bottom)
                 make.width.equalTo(130)
             }
             otherResourceButton.snp.makeConstraints { make in
                 make.right.equalTo(headerView.snp.right).offset(-(UIScreen.main.bounds.width - 240 - 40)/2)
-                make.bottom.equalTo(headerView.snp.bottom).offset(-50)
+                make.bottom.equalTo(headerView.snp.bottom)
                 make.width.equalTo(130)
             }
         } else {
@@ -182,10 +185,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
-        // 能够传递点击事件
+        
         cell.delegate = self
         
-        // 🌸未搞懂，等待解决
         switch indexPath.section {
         case Sections.TrendingMovies.rawValue:
             APICaller.shared.getTrendingMovies { result in
@@ -238,11 +240,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
         }
         
+        if indexPath.section < 3 {
+            if let flowLayout = cell.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                // Set the scroll direction to vertical
+                flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 3, height: 200)
+                flowLayout.minimumInteritemSpacing = 0
+                flowLayout.scrollDirection = .vertical
+            }
+        }
+        
         return cell
     }
     
     // 行高
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section < 3 {
+            return 600
+        }
         return 200
     }
     
@@ -268,7 +282,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController: CollectionViewTableViewCellDelegate {
     /// 点击事件 didSelectItemAt
     func collectionViewTableViewCellDidTapCell(viewModel: TitlePreviewViewModel, indexPath: IndexPath, Titles: [Title]) {
-
         let vc = TitlePreviewViewController()
         vc.configure(with: viewModel)
         vc.configIndexPath(configIndexPath: indexPath, Titles: Titles)

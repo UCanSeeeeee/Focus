@@ -11,8 +11,6 @@ import MessageUI
 
 class HeroHeaderUIView: UIView, MFMailComposeViewControllerDelegate{
     
-
-    
     private let heroImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -36,7 +34,6 @@ class HeroHeaderUIView: UIView, MFMailComposeViewControllerDelegate{
         fatalError()
     }
 }
-
 
 //MARK: - 方法
 extension HeroHeaderUIView {

@@ -20,14 +20,14 @@ class SearchViewController: UIViewController {
 
     private let searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: SearchResultsViewController())
-        controller.searchBar.placeholder = "Search for a Movie or a Tv show"
+        controller.searchBar.placeholder = "在这里输入一部电影或电视节目"
         controller.searchBar.searchBarStyle = .minimal
         return controller
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Search"
+        navigationItem.title = "搜索"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
         view.backgroundColor = .systemBackground

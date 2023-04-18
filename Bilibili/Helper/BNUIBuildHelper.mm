@@ -93,7 +93,7 @@
 }
 
 + (UILabel *)buildCommonBottomEndLabel:(CGFloat)width {
-    UILabel *productLabel = [BNUIBuildHelper buildLabelWithFont:[UIFont systemFontOfSize:14] textColor:[UIColor whiteColor] textHeight:14 defaultText:@"——— 喵酱爱订阅，专注多平台订阅 ———" maxWidth:width textAlignment:NSTextAlignmentCenter];
+    UILabel *productLabel = [BNUIBuildHelper buildLabelWithFont:[UIFont systemFontOfSize:14] textColor:[UIColor whiteColor] textHeight:14 defaultText:@"——— 只看你想看，专注多平台订阅 ———" maxWidth:width textAlignment:NSTextAlignmentCenter];
     productLabel.alpha = 0.9;
     return productLabel;
 }

@@ -36,7 +36,7 @@ class TitlePreviewViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .red
-        button.setTitle("Mark", for: .normal)
+        button.setTitle("收藏", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(downloadTitleAt), for: .touchUpInside)

@@ -83,7 +83,7 @@
         alert.darkTheme = YES;
         [alert showAlertInView:self.fromVC
                      withTitle:@"隐私政策"
-                  withSubtitle:@"「喵酱爱订阅」不会收集您的任何信息，出于安全考虑，所以信息均是您和各平台直接进行的访问。\n\n本App完成了各平台互通访问的搭建工作，让您在一个App上快速获取多平台订阅的信息。"
+                  withSubtitle:@"「只看你想看」不会收集您的任何信息，出于安全考虑，所以信息均是您和各平台直接进行的访问。\n\n本App完成了各平台互通访问的搭建工作，让您在一个App上快速获取多平台订阅的信息。"
                withCustomImage:nil
            withDoneButtonTitle:@"我知道了"
                     andButtons:nil];
