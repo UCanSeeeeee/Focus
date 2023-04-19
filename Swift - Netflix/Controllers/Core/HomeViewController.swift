@@ -56,7 +56,6 @@ class HomeViewController: UIViewController, MFMailComposeViewControllerDelegate{
     // 创建 UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "首页"
         view.backgroundColor = .systemBackground
         view.addSubview(homeFeedTable)
         view.addSubview(emailAuthorButton)
@@ -97,14 +96,6 @@ extension HomeViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    @objc func otherResourceTapped() {
-//        guard let url = URL(string: "https://chiehwang.top/resources_center") else { return }
-//        UIApplication.shared.open(url)
-        let alert = UIAlertController(title: "资源库", message: "电子书：https://zhelper.net\n电影片源：https://yiso.fun\nMac软件：https://www.macyy.cn", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "用户若乐意补充分享请与作者联系", style: .default))
-        present(alert, animated: true, completion: nil)
-    }
-    
     @objc func openTencentTV() {
         guard let url = URL(string: "https://film.qq.com/film_all_list/allfilm.html?type=movie&sort=75") else { return }
         UIApplication.shared.open(url)
@@ -121,6 +112,13 @@ extension HomeViewController {
     }
     
     @objc func handleEmailButtonTapped() {
+        UIView.animate(withDuration: 0.35, animations: {
+            self.emailAuthorButton.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.35) {
+                self.emailAuthorButton.transform = CGAffineTransform.identity
+            }
+        })
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
@@ -131,6 +129,19 @@ extension HomeViewController {
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
         }
+    }
+    
+    @objc func otherResourceTapped() {
+        UIView.animate(withDuration: 0.35, animations: {
+            self.otherResourceButton.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.35) {
+                self.otherResourceButton.transform = CGAffineTransform.identity
+            }
+        })
+        let alert = UIAlertController(title: "资源库", message: "电子书：https://zhelper.net\n电影片源：https://yiso.fun\nMac软件：https://www.macyy.cn", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "用户若乐意补充分享请与作者联系", style: .default))
+        present(alert, animated: true, completion: nil)
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {

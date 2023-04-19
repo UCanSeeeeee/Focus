@@ -33,8 +33,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"只看你想看";
-    
     self.view.backgroundColor = [UIColor blackColor];
     [self setUpTopRefreshHeaderToScrollView];
     [self.view addSubview:self.scrollView];
