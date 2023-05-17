@@ -2,7 +2,7 @@
 //  BNTitleSubView.m
 //  BNSubscribeHelperProject
 //
-//  Created by blinblin on 2022/4/4.
+//  Created by chieh on 2022/4/4.
 //
 
 #import "BNTitleSubView.h"

@@ -2,7 +2,7 @@
 //  BNUIBuildHelper.h
 //  BNBitcoinIndexApp
 //
-//  Created by binbinwang on 2021/12/5.
+//  Created by chieh on 2021/12/5.
 //
 
 #import <Foundation/Foundation.h>

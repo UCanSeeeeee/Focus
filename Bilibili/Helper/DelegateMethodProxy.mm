@@ -2,7 +2,7 @@
 //  DelegateMethodProxy.m
 //  NSTimerProxyDemo
 //
-//  Created by blinblin on 2022/3/5.
+//  Created by chieh on 2022/3/5.
 //
 
 #import "DelegateMethodProxy.h"

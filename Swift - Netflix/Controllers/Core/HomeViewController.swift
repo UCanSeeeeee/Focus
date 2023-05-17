@@ -56,6 +56,7 @@ class HomeViewController: UIViewController, MFMailComposeViewControllerDelegate{
     // 创建 UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "首页"
         view.backgroundColor = .systemBackground
         view.addSubview(homeFeedTable)
         view.addSubview(emailAuthorButton)
@@ -139,8 +140,8 @@ extension HomeViewController {
                 self.otherResourceButton.transform = CGAffineTransform.identity
             }
         })
-        let alert = UIAlertController(title: "资源库", message: "电子书：https://zhelper.net\n电影片源：https://yiso.fun\nMac软件：https://www.macyy.cn", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "用户若乐意补充分享请与作者联系", style: .default))
+        let alert = UIAlertController(title: "盗版黑名单", message:"拒绝盗版从我做起，下面的网站提供大量破解资源下载，欢迎大家监督它们。\n电子书：https://zhelper.net\n电影片源：https://yiso.fun\nMac软件：https://www.macbl.com/", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "欢迎用户补充该名单", style: .default))
         present(alert, animated: true, completion: nil)
     }
     

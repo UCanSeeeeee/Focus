@@ -2,7 +2,7 @@
 //  BNMainViewController.m
 //  BNSubscribeHelperProject
 //
-//  Created by blinblin on 2022/3/27.
+//  Created by chieh on 2022/3/27.
 //
 
 #import "BNMainViewController.h"
@@ -33,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"只看你想看";
     self.view.backgroundColor = [UIColor blackColor];
     [self setUpTopRefreshHeaderToScrollView];
     [self.view addSubview:self.scrollView];

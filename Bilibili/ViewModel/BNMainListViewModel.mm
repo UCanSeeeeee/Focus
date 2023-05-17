@@ -2,7 +2,7 @@
 //  BNMainListViewModel.m
 //  BNSubscribeHelperProject
 //
-//  Created by blinblin on 2022/3/6.
+//  Created by chieh on 2022/3/6.
 //
 
 #import "BNMainListViewModel.h"
@@ -29,8 +29,10 @@
     if (!_cardTypeArray) {
         _cardTypeArray = [NSMutableArray array];
         [_cardTypeArray addObject:@(BNSubAuthorPlatformTypeBliBli)];
+        /**
+         提供YouTube接口
+         */
 //        [_cardTypeArray addObject:@(BNSubAuthorPlatformTypeYouTube)];
-        [_cardTypeArray addObject:@(BNSubAuthorPlatformTypeYouTube)];
     }
     return _cardTypeArray;
 }

@@ -2,7 +2,7 @@
 //  BNAuthorDataInfo.m
 //  BNSubscribeHelperProject
 //
-//  Created by blinblin on 2022/3/6.
+//  Created by chieh on 2022/3/6.
 //
 
 #import "BNAuthorDataInfo.h"

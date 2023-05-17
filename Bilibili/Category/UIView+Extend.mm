@@ -2,7 +2,7 @@
 //  UIView+Extend.m
 //  BNBitcoinIndexApp
 //
-//  Created by binbinwang on 2021/12/5.
+//  Created by chieh on 2021/12/5.
 //
 
 #import "UIView+Extend.h"

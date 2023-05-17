@@ -32,7 +32,6 @@ class DataPersistenceManager {
     func downloadTitleWith(model: Title, completion: @escaping (Result<Void, Error>) -> Void) {
         let item = TitleItem(context: context)
         item.original_title = model.original_title
-        item.id = Int64(model.id)
         item.overview = model.overview
         item.poster_path = model.poster_path
         do {

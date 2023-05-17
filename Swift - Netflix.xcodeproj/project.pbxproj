@@ -34,7 +34,6 @@
 		D110E1E729DB0B330093AAA8 /* MMUIView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E17F29DB0B310093AAA8 /* MMUIView.mm */; };
 		D110E1E829DB0B330093AAA8 /* BNAuthorIntroduceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E18329DB0B310093AAA8 /* BNAuthorIntroduceView.mm */; };
 		D110E1E929DB0B330093AAA8 /* BNTitleSubView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E18429DB0B310093AAA8 /* BNTitleSubView.mm */; };
-		D110E1EA29DB0B330093AAA8 /* JBKenBurnsView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E18629DB0B310093AAA8 /* JBKenBurnsView.mm */; };
 		D110E1EB29DB0B330093AAA8 /* BNSearchAuthorTableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E18829DB0B310093AAA8 /* BNSearchAuthorTableViewCell.mm */; };
 		D110E1EC29DB0B330093AAA8 /* BNMainSubCardView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E18929DB0B310093AAA8 /* BNMainSubCardView.mm */; };
 		D110E1ED29DB0B330093AAA8 /* BNCellWidgetView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E18D29DB0B310093AAA8 /* BNCellWidgetView.mm */; };
@@ -124,12 +123,10 @@
 		D110E18329DB0B310093AAA8 /* BNAuthorIntroduceView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNAuthorIntroduceView.mm; sourceTree = "<group>"; };
 		D110E18429DB0B310093AAA8 /* BNTitleSubView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNTitleSubView.mm; sourceTree = "<group>"; };
 		D110E18529DB0B310093AAA8 /* BNTitleSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNTitleSubView.h; sourceTree = "<group>"; };
-		D110E18629DB0B310093AAA8 /* JBKenBurnsView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JBKenBurnsView.mm; sourceTree = "<group>"; };
 		D110E18729DB0B310093AAA8 /* BNCellWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCellWidgetView.h; sourceTree = "<group>"; };
 		D110E18829DB0B310093AAA8 /* BNSearchAuthorTableViewCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNSearchAuthorTableViewCell.mm; sourceTree = "<group>"; };
 		D110E18929DB0B310093AAA8 /* BNMainSubCardView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNMainSubCardView.mm; sourceTree = "<group>"; };
 		D110E18A29DB0B310093AAA8 /* BNMainSubCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNMainSubCardView.h; sourceTree = "<group>"; };
-		D110E18B29DB0B310093AAA8 /* JBKenBurnsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBKenBurnsView.h; sourceTree = "<group>"; };
 		D110E18C29DB0B310093AAA8 /* BNSearchAuthorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSearchAuthorTableViewCell.h; sourceTree = "<group>"; };
 		D110E18D29DB0B310093AAA8 /* BNCellWidgetView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNCellWidgetView.mm; sourceTree = "<group>"; };
 		D110E18F29DB0B320093AAA8 /* UIImage+EditTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+EditTool.h"; sourceTree = "<group>"; };
@@ -376,8 +373,6 @@
 				D110E18829DB0B310093AAA8 /* BNSearchAuthorTableViewCell.mm */,
 				D110E18529DB0B310093AAA8 /* BNTitleSubView.h */,
 				D110E18429DB0B310093AAA8 /* BNTitleSubView.mm */,
-				D110E18B29DB0B310093AAA8 /* JBKenBurnsView.h */,
-				D110E18629DB0B310093AAA8 /* JBKenBurnsView.mm */,
 				D110E18229DB0B310093AAA8 /* MMUIView.h */,
 				D110E17F29DB0B310093AAA8 /* MMUIView.mm */,
 			);
@@ -406,14 +401,14 @@
 		D110E19B29DB0B320093AAA8 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
-				D110E19C29DB0B320093AAA8 /* BNBasicDataService.mm */,
-				D110E19D29DB0B320093AAA8 /* BNSubscribeMMKV.h */,
 				D110E19E29DB0B320093AAA8 /* BNBasicDataService.h */,
-				D110E19F29DB0B320093AAA8 /* Youtube */,
-				D110E1A429DB0B320093AAA8 /* Blibli */,
+				D110E19D29DB0B320093AAA8 /* BNSubscribeMMKV.h */,
 				D110E1A929DB0B320093AAA8 /* BNSubscribeWCDB.h */,
 				D110E1AA29DB0B320093AAA8 /* BNSubscribeMMKV.m */,
+				D110E19C29DB0B320093AAA8 /* BNBasicDataService.mm */,
 				D110E1AB29DB0B320093AAA8 /* BNSubscribeWCDB.mm */,
+				D110E1A429DB0B320093AAA8 /* Blibli */,
+				D110E19F29DB0B320093AAA8 /* Youtube */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -421,10 +416,10 @@
 		D110E19F29DB0B320093AAA8 /* Youtube */ = {
 			isa = PBXGroup;
 			children = (
-				D110E1A029DB0B320093AAA8 /* BNYoutubeSearchAuthorCGI.mm */,
+				D110E1A329DB0B320093AAA8 /* BNYoutubeGetAuthorInfoCGI.h */,
 				D110E1A129DB0B320093AAA8 /* BNYoutubeGetAuthorInfoCGI.mm */,
 				D110E1A229DB0B320093AAA8 /* BNYoutubeSearchAuthorCGI.h */,
-				D110E1A329DB0B320093AAA8 /* BNYoutubeGetAuthorInfoCGI.h */,
+				D110E1A029DB0B320093AAA8 /* BNYoutubeSearchAuthorCGI.mm */,
 			);
 			path = Youtube;
 			sourceTree = "<group>";
@@ -432,10 +427,10 @@
 		D110E1A429DB0B320093AAA8 /* Blibli */ = {
 			isa = PBXGroup;
 			children = (
-				D110E1A529DB0B320093AAA8 /* BNBlibliSearchAuthorCGI.mm */,
-				D110E1A629DB0B320093AAA8 /* BNBlibliGetAuthorInfoCGI.mm */,
 				D110E1A729DB0B320093AAA8 /* BNBlibliGetAuthorInfoCGI.h */,
+				D110E1A629DB0B320093AAA8 /* BNBlibliGetAuthorInfoCGI.mm */,
 				D110E1A829DB0B320093AAA8 /* BNBlibliSearchAuthorCGI.h */,
+				D110E1A529DB0B320093AAA8 /* BNBlibliSearchAuthorCGI.mm */,
 			);
 			path = Blibli;
 			sourceTree = "<group>";
@@ -502,18 +497,18 @@
 		D110E1CD29DB0B330093AAA8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D110E1CE29DB0B330093AAA8 /* BNMainListViewModel.mm */,
-				D110E1CF29DB0B330093AAA8 /* BNSubscribeInfoModel.h */,
-				D110E1D029DB0B330093AAA8 /* BNSearchAuthorViewModel.h */,
-				D110E1D129DB0B330093AAA8 /* BNAuthorListViewModel.mm */,
-				D110E1D229DB0B330093AAA8 /* BNAuthorListViewModel.h */,
-				D110E1D329DB0B330093AAA8 /* BNSubscribeInfoModel.mm */,
 				D110E1D429DB0B330093AAA8 /* BNAuthorDataInfo.h */,
-				D110E1D529DB0B330093AAA8 /* BNMainListViewModel.h */,
 				D110E1D629DB0B330093AAA8 /* BNAuthorDataInfo.mm */,
-				D110E1D729DB0B330093AAA8 /* BNSearchAuthorViewModel.mm */,
-				D110E1D829DB0B330093AAA8 /* BNMainCardViewModel.mm */,
+				D110E1D229DB0B330093AAA8 /* BNAuthorListViewModel.h */,
+				D110E1D129DB0B330093AAA8 /* BNAuthorListViewModel.mm */,
 				D110E1D929DB0B330093AAA8 /* BNMainCardViewModel.h */,
+				D110E1D829DB0B330093AAA8 /* BNMainCardViewModel.mm */,
+				D110E1D529DB0B330093AAA8 /* BNMainListViewModel.h */,
+				D110E1CE29DB0B330093AAA8 /* BNMainListViewModel.mm */,
+				D110E1D029DB0B330093AAA8 /* BNSearchAuthorViewModel.h */,
+				D110E1D729DB0B330093AAA8 /* BNSearchAuthorViewModel.mm */,
+				D110E1CF29DB0B330093AAA8 /* BNSubscribeInfoModel.h */,
+				D110E1D329DB0B330093AAA8 /* BNSubscribeInfoModel.mm */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -521,17 +516,17 @@
 		D110E1DA29DB0B330093AAA8 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				D110E1E329DB0B330093AAA8 /* BNCommonDataTool.h */,
+				D110E1E029DB0B330093AAA8 /* BNCommonDataTool.mm */,
+				D110E1DD29DB0B330093AAA8 /* BNRedDotBuildHelper.h */,
 				D110E1DB29DB0B330093AAA8 /* BNRedDotBuildHelper.mm */,
 				D110E1DC29DB0B330093AAA8 /* BNRouterHelper.h */,
-				D110E1DD29DB0B330093AAA8 /* BNRedDotBuildHelper.h */,
-				D110E1DE29DB0B330093AAA8 /* DelegateMethodProxy.h */,
-				D110E1DF29DB0B330093AAA8 /* BNUIBuildHelper.mm */,
-				D110E1E029DB0B330093AAA8 /* BNCommonDataTool.mm */,
 				D110E1E129DB0B330093AAA8 /* BNRouterHelper.mm */,
-				D110E1E229DB0B330093AAA8 /* DelegateMethodProxy.mm */,
-				D110E1E329DB0B330093AAA8 /* BNCommonDataTool.h */,
 				D110E1E429DB0B330093AAA8 /* BNSubDataDefine.h */,
 				D110E1E529DB0B330093AAA8 /* BNUIBuildHelper.h */,
+				D110E1DF29DB0B330093AAA8 /* BNUIBuildHelper.mm */,
+				D110E1DE29DB0B330093AAA8 /* DelegateMethodProxy.h */,
+				D110E1E229DB0B330093AAA8 /* DelegateMethodProxy.mm */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -733,7 +728,6 @@
 				0AD9A10427604E4D00131EEF /* Title.swift in Sources */,
 				D110E1FA29DB0B330093AAA8 /* BNSubscribeWCDB.mm in Sources */,
 				D110E1E729DB0B330093AAA8 /* MMUIView.mm in Sources */,
-				D110E1EA29DB0B330093AAA8 /* JBKenBurnsView.mm in Sources */,
 				D110E1E929DB0B330093AAA8 /* BNTitleSubView.mm in Sources */,
 				D15BC81628A502AB0065D2B9 /* TitleItem+CoreDataClass.swift in Sources */,
 				D110E21229DB0B330093AAA8 /* BNMainListViewModel.mm in Sources */,

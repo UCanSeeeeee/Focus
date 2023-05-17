@@ -2,7 +2,7 @@
 //  BNSubDataDefine.h
 //  BNSubscribeHelperProject
 //
-//  Created by blinblin on 2022/3/6.
+//  Created by chieh on 2022/3/6.
 //
 
 #ifndef BNSubDataDefine_h

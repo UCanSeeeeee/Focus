@@ -2,7 +2,7 @@
 //  BNBasicDataService.m
 //  BNSubscribeHelperProject
 //
-//  Created by blinblin on 2022/3/27.
+//  Created by chieh on 2022/3/27.
 //
 
 #import "BNBasicDataService.h"
@@ -47,7 +47,7 @@
 - (NSMutableArray *)youtubeKeySecretArray {
     if (!_youtubeKeySecretArray) {
         _youtubeKeySecretArray = [NSMutableArray array];
-        [_youtubeKeySecretArray addObject:@"AIzaSyCvTt_60ZQA6o4OqmDHDJiKHUUV76PKTBA"]; // binbinwangt
+        [_youtubeKeySecretArray addObject:@"AIzaSyCvTt_60ZQA6o4OqmDHDJiKHUUV76PKTBA"]; // chieht
         [_youtubeKeySecretArray addObject:@"AIzaSyDvbffT9BuSDVBRrYaN1R8ghOaI6DRfYSo"]; // binbinw476
         [_youtubeKeySecretArray addObject:@"AIzaSyAjRgCSkz4sjee9xWf3Bdc21-6Js98judU"]; // binbinw01@gmail.com
         [_youtubeKeySecretArray addObject:@"AIzaSyDYf12TL8xkHeo7A26S8k6YvUQ3q8o5vYw"]; // binbinw04@gmail.com

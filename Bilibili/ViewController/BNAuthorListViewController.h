@@ -2,7 +2,7 @@
 //  BNAuthorListViewController.h
 //  BNSubscribeHelperProject
 //
-//  Created by blinblin on 2022/3/27.
+//  Created by chieh on 2022/3/27.
 //
 
 #import <UIKit/UIKit.h>

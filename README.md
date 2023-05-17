@@ -1,2 +1,2 @@
-# Swift-Netflix 一款浏览影片预告片的App
+# Focus - 用于iOS开发练习的demo
 - Time 7/20

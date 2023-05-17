@@ -2,7 +2,7 @@
 //  BNYoutubeSearchAuthorCGI.h
 //  BNSubscribeHelperProject
 //
-//  Created by blinblin on 2022/4/3.
+//  Created by chieh on 2022/4/3.
 //
 
 #import <Foundation/Foundation.h>

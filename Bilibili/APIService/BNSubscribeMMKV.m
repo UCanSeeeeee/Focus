@@ -2,7 +2,7 @@
 //  BNSubscribeMMKV.m
 //  BNSubscribeHelperProject
 //
-//  Created by blinblin on 2022/4/10.
+//  Created by chieh on 2022/4/10.
 //
 
 #import "BNSubscribeMMKV.h"
