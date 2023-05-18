@@ -2,7 +2,7 @@
 //  BNBlibliGetAuthorInfoCGI.m
 //  BNSubscribeHelperProject
 //
-//  Created by chieh on 2022/4/3.
+//  Created by chieh on 2022/11/12.
 //
 
 #import "BNBlibliGetAuthorInfoCGI.h"

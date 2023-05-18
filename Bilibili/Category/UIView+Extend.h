@@ -2,7 +2,7 @@
 //  UIView+Extend.h
 //  BNBitcoinIndexApp
 //
-//  Created by chieh on 2021/12/5.
+//  Created by chieh on 2022/11/12.
 //
 
 #import <UIKit/UIKit.h>

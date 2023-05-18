@@ -2,7 +2,7 @@
 //  BNSubscribeMMKV.h
 //  BNSubscribeHelperProject
 //
-//  Created by chieh on 2022/4/10.
+//  Created by chieh on 2022/11/12.
 //
 
 #import <Foundation/Foundation.h>

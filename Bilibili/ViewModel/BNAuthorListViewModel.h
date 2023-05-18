@@ -2,7 +2,7 @@
 //  BNAuthorListViewModel.h
 //  BNSubscribeHelperProject
 //
-//  Created by chieh on 2022/3/27.
+//  Created by chieh on 2022/11/12.
 //
 
 #import <Foundation/Foundation.h>
