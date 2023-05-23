@@ -38,15 +38,14 @@
     __block NSUInteger responseCount = 0;
     [self.authorDataArray enumerateObjectsUsingBlock:^(BNAuthorDataInfo * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        NSString *requestUrl = [NSString stringWithFormat:@"%@&key=%@&channelId=%@",BNYoutubeGetAuthorInfoAPI,@"AIzaSyDHE6iuvgk1zdo9clcItAqlJiy0CfpipH8",obj.username];
+        NSString *requestUrl = [NSString stringWithFormat:@"%@&key=%@&channelId=%@",BNYoutubeGetAuthorInfoAPI,[[BNBasicDataService shareInstance] getRandomYoutubeKeySecret],obj.username];
         //把请求头进行 UTF-8编码
         NSString *path = [requestUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
         [manager GET:path parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSLog(@"BNYoutubeGetAuthorInfoCGI 请求成功---%@", responseObject);
             if ([responseObject isKindOfClass:[NSDictionary class]]) {
                 NSArray *result = [responseObject objectForKey:@"items"];
-                if (!result || result.count <= 0) {
-                }else{
+                if (result.count > 0) {
                     NSDictionary *recentlyContentDic = [result firstObject];
                     NSDictionary *snippetDic = [recentlyContentDic objectForKey:@"snippet"];
                     NSString *publishString = [snippetDic objectForKey:@"publishTime"];

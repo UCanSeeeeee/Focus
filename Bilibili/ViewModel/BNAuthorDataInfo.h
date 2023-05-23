@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSUInteger createdUpdateTime;
 @property (nonatomic, assign) BNSubRedDotShowType redDotShowType;
 @property (nonatomic, assign) BNSubscribeType subscribeType;
-@property (nonatomic, copy) NSString *contentId;
+@property (nonatomic, copy) NSString *contentId; // 视频url标识
 
 // API only
 @property (nonatomic, copy) NSString *authorDescContent; // 粉丝:xx 内容:xx

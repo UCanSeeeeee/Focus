@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface BNMainListViewModel : NSObject
+@interface BNMainAppPlatformViewModel : NSObject
 
 @property (nonatomic, strong, readonly) NSMutableArray<NSNumber *> *cardTypeArray;
 

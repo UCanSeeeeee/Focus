@@ -2,7 +2,7 @@
 //  BNMainCardViewModel.h
 //  BNSubscribeHelperProject
 //
-//  Created by chieh on 2022/3/6.
+//  Created by blinblin on 2022/3/6.
 //
 
 #import <Foundation/Foundation.h>
@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)deleteSubscribeAuthorIndexPath:(NSIndexPath *)indexPath;
 
-- (void)fetchAuthorRecentlyAuthor;
+- (void)fetchRecentSubscribeAuthor;
 
 - (void)disposeSubscribeRedDotIndexPath:(NSIndexPath *)indexPath;
 

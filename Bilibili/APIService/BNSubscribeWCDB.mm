@@ -70,6 +70,7 @@ static NSString *const BNSubscribeInfoTableName = @"subscribeInfoTableName";
     return (self.subscribeInfoTable != nil);
 }
 
+/** 更新 时间戳 和 WCDB-作者信息表 */
 - (BOOL)insertOrReplaceAuthorInfos:(NSArray<BNAuthorDataInfo *> *)authorInfos {
     [authorInfos enumerateObjectsUsingBlock:^(BNAuthorDataInfo * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         obj.cacheTime = [[NSDate date] timeIntervalSince1970];

@@ -38,7 +38,8 @@
     }
 }
 
-- (void)fetchAuthorRecentlyAuthor {
+/** 成功 */
+- (void)fetchRecentSubscribeAuthor {
     [[BNBasicDataService shareInstance] requestAuthorInfos:self.authorModelArray
                                               platFormType:self.platFormType sucBlock:^(NSMutableArray<BNAuthorDataInfo *> *authorInfo) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(onCardViewModelAuthorInfoUpdatedSuc)]) {

@@ -47,11 +47,11 @@ typedef NS_OPTIONS(NSUInteger, BNSubscribeType) {
 };
 
 typedef void (^BNCommonCGIFailBlock)(int errCode);
+
 typedef void (^BNBliBliSearchAuthorSucBlock)(NSMutableArray<BNAuthorDataInfo *> *authorInfoArray);
 typedef void (^BNBliBliGetAuthorInfoSucBlock)(NSMutableArray<BNAuthorDataInfo *> *authorInfo);
 
 typedef void (^BNYoutubeSearchAuthorSucBlock)(NSMutableArray<BNAuthorDataInfo *> *authorInfoArray);
-typedef void (^BNYoutubeGetAuthorInfoSucBlock)(NSMutableArray<BNAuthorDataInfo *> *authorInfo);
 typedef void (^BNYoutubeGetAuthorInfoSucBlock)(NSMutableArray<BNAuthorDataInfo *> *authorInfo);
 
 #endif /* BNSubDataDefine_h */

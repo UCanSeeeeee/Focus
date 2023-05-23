@@ -7,7 +7,7 @@
 
 #import "BNMainViewController.h"
 #import "MMUIView.h"
-#import "BNMainListViewModel.h"
+#import "BNMainAppPlatformViewModel.h"
 #import "BNMainSubCardView.h"
 #import "BNAuthorIntroduceView.h"
 #import "BNAddSubscribeViewController.h"
@@ -23,7 +23,7 @@
 @interface BNMainViewController ()<UIScrollViewDelegate,BNMainListViewModelDelegate,BNMainSubCardViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) BNMainListViewModel *viewModel;
+@property (nonatomic, strong) BNMainAppPlatformViewModel *viewModel;
 @property (nonatomic, strong) UIButton *addBtn;
 @property (nonatomic, strong) BNAuthorIntroduceView *introduceView;
 
@@ -84,9 +84,11 @@
 
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
+        // 确定scrollView的位置以及能滑动的范围
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height)];
         _scrollView.contentSize = CGSizeMake(self.view.width, kScrollMinContentSizeHeight);
         _scrollView.delegate = self;
+        // 隐藏UIScrollView的垂直和水平滚动条
         _scrollView.showsVerticalScrollIndicator = FALSE;
         _scrollView.showsHorizontalScrollIndicator = FALSE;
         _scrollView.clipsToBounds = YES;
@@ -94,23 +96,27 @@
     return _scrollView;
 }
 
+/** 接入下拉刷新组件 */
 - (void)setUpTopRefreshHeaderToScrollView {
+    // 下拉刷新执行
     MJRefreshStateHeader *refreshHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self refreshAllSubscribeCard];
+        // 结束下拉动画
         [self.scrollView.mj_header endRefreshing];
     }];
-    refreshHeader.lastUpdatedTimeLabel.hidden = YES;
+    refreshHeader.lastUpdatedTimeLabel.hidden = NO;
     refreshHeader.automaticallyChangeAlpha = YES;
     self.scrollView.mj_header = refreshHeader;
 }
 
-- (BNMainListViewModel *)viewModel {
+- (BNMainAppPlatformViewModel *)viewModel {
     if (!_viewModel) {
-        _viewModel = [[BNMainListViewModel alloc] init];
+        _viewModel = [[BNMainAppPlatformViewModel alloc] init];
     }
     return _viewModel;
 }
 
+/** 接入支持的平台 UI描绘*/
 - (void)setUpCardList {
     [self.viewModel.cardTypeArray enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         BNSubAuthorPlatformType platformType = (BNSubAuthorPlatformType)[obj intValue];
@@ -125,17 +131,20 @@
     [self layoutAllSubviews];
 }
 
+/** 刷新订阅组件 */
 - (void)refreshAllSubscribeCard {
     [self.scrollView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:[BNMainSubCardView class]]) {
-            [((BNMainSubCardView *)obj) triggerUpdateSubscribeInfo];
+            [(BNMainSubCardView *)obj triggerUpdateSubscribeInfo];
         }
     }];
-    
+    // 更新时间戳
     [[BNBasicDataService shareInstance].mmkvModel updateLastRefreshTimeStamp:[self getCurTimeStamp]];
 }
 
+/** 得到当前时间 */
 - (NSTimeInterval)getCurTimeStamp {
+    // 参数0表示从当前时间开始计算时间间隔。
     NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];
     NSTimeInterval time = [date timeIntervalSince1970];
     return time;

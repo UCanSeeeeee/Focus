@@ -5,18 +5,18 @@
 //  Created by chieh on 2022/3/6.
 //
 
-#import "BNMainListViewModel.h"
+#import "BNMainAppPlatformViewModel.h"
 #import "BNMainCardViewModel.h"
 #import "MMUIView.h"
 #import "BNAuthorDataInfo.h"
 
-@interface BNMainListViewModel ()
+@interface BNMainAppPlatformViewModel ()
 
 @property (nonatomic, strong) NSMutableArray<NSNumber *> *cardTypeArray;
 
 @end
 
-@implementation BNMainListViewModel
+@implementation BNMainAppPlatformViewModel
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -29,10 +29,8 @@
     if (!_cardTypeArray) {
         _cardTypeArray = [NSMutableArray array];
         [_cardTypeArray addObject:@(BNSubAuthorPlatformTypeBliBli)];
-        /**
-         提供YouTube接口
-         */
-        //        [_cardTypeArray addObject:@(BNSubAuthorPlatformTypeYouTube)];
+//        YouTube接口：
+        [_cardTypeArray addObject:@(BNSubAuthorPlatformTypeYouTube)];
     }
     return _cardTypeArray;
 }

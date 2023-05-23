@@ -36,7 +36,7 @@
 
 - (void)start {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    NSString *requestUrl = [NSString stringWithFormat:@"%@&key=%@&q=%@",BNYoutubeSearchAuthorAPI,@"AIzaSyDHE6iuvgk1zdo9clcItAqlJiy0CfpipH8",self.searchContent];
+    NSString *requestUrl = [NSString stringWithFormat:@"%@&key=%@&q=%@",BNYoutubeSearchAuthorAPI,[[BNBasicDataService shareInstance] getRandomYoutubeKeySecret],self.searchContent];
     //把请求头进行 UTF-8编码
     NSString *path = [requestUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     [manager GET:path parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

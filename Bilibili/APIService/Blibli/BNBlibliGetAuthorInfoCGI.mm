@@ -11,7 +11,7 @@
 #import "BNSubDataDefine.h"
 #import "BNAuthorDataInfo.h"
 
-#define BNBlibliGetAuthorInfoAPI @"https://api.bilibili.com/x/space/arc/search?"
+#define BNBlibliGetAuthorInfoAPI @"https://api.bilibili.com/x/space/wbi/arc/search?"
 
 @interface BNBlibliGetAuthorInfoCGI ()
 
@@ -38,16 +38,18 @@
     __block NSMutableArray<BNAuthorDataInfo *> *infoArray = [NSMutableArray array];
     __block NSUInteger responseCount = 0;
     [self.authorDataArray enumerateObjectsUsingBlock:^(BNAuthorDataInfo * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        NSLog(@"Chieh:%@",obj.username);
         NSString *requestUrl = [NSString stringWithFormat:@"%@mid=%@",BNBlibliGetAuthorInfoAPI,obj.username];
-        //把请求头进行 UTF-8编码
+        //把请求头进行 UTF-8 编码
         NSString *path = [requestUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         [manager GET:path parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"Chieh:%@",path);
             NSLog(@"BNBlibliGetAuthorInfoCGI 请求成功---%@", responseObject);
             if ([responseObject isKindOfClass:[NSDictionary class]]) {
                 NSArray *result = [[[responseObject objectForKey:@"data"] objectForKey:@"list"] objectForKey:@"vlist"];
-                if (!result || result.count <= 0) {
-                }else{
+                if (result.count > 0) {
                     NSDictionary *recentlyContentDic = [result firstObject];
                     NSUInteger createdTimeStamp = [[recentlyContentDic objectForKey:@"created"] intValue];
                     if (createdTimeStamp > obj.createdUpdateTime) {
@@ -72,6 +74,7 @@
                 self.failBlock(BNNetWorkErrTypeFail);
             }
         }];
+        
     }];
 }
 

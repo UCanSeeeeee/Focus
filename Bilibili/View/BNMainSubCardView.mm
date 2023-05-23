@@ -66,14 +66,13 @@
     return _tableView;
 }
 
-
+/** 填充平台数据、添加点击手势、刷新作者数据 */
 - (void)reloadCell {
     self.indicatorView.backgroundColor = [BNUIBuildHelper getThemeColorByPlatformType:self.viewModel.platFormType];
     [self.titleLabel setText:[BNUIBuildHelper getThemeNameByPlatformType:self.viewModel.platFormType]];
     [self.titleLabel sizeToFit];
     
-    if (self.viewModel.authorModelArray.count > 0) {
-    }else{
+    if (self.viewModel.authorModelArray.count == 0) {
         self.addBtn.hidden = NO;
         // 点击跳转 SearchAuthorViewController
         UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didClickAddBtn)];
@@ -205,13 +204,15 @@
     self.loadingView.hidden = YES;
 }
 
+/** 加载数据 刷新订阅卡片 */
 - (void)triggerUpdateSubscribeInfo {
     if (self.viewModel.authorModelArray.count <= 0) {
         return;
     }
     [self reloadCell];
     self.loadingView.hidden = NO;
-    [self.viewModel fetchAuthorRecentlyAuthor];
+    // 进行网络请求获取已订阅作者信息
+    [self.viewModel fetchRecentSubscribeAuthor];
 }
 
 #pragma mark - UITableViewDataSource
