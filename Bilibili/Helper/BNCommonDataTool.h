@@ -11,8 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BNCommonDataTool : NSObject
 
-+ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
-
 + (NSString *)dictionaryToJson:(NSDictionary *)dic;
 
 // 字符串转时间

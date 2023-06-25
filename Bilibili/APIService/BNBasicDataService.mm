@@ -28,6 +28,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         shareInstance = [[super allocWithZone:NULL] init];
+//        shareInstance = [[self alloc] init];
     });
     return shareInstance;
 }

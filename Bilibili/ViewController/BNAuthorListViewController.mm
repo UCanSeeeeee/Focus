@@ -16,12 +16,16 @@
 #import "BNSearchAuthorViewController.h"
 
 static NSString *const BNSearchAuthorTableViewCellID = @"BNSearchAuthorTableViewCell";
+static CGFloat const BNTableViewHeaderHeight = 32.0;
+static CGFloat const BNTableViewHeaderPadding = 16.0;
+static CGFloat const CloseButtonWidth = 24.0;
 
 @interface BNAuthorListViewController ()<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource,BNSearchAuthorViewControllerDelegate>
 
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (strong, nonatomic) UIView *searchContainer;
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIButton *closeButton;
 @property (nonatomic, strong) BNAuthorListViewModel *viewModel;
 @property (nonatomic, strong) BNSearchAuthorViewController *searchViewController;
 
@@ -31,77 +35,32 @@ static NSString *const BNSearchAuthorTableViewCellID = @"BNSearchAuthorTableView
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = [UIColor blackColor];
-    
-    [self updateNavigationBarView];
-    [self setUpSearchBar];
-    [self configureTableView];
+    [self setupUI];
 }
 
-- (BNAuthorListViewModel *)viewModel {
-    if (!_viewModel) {
-        _viewModel = [[BNAuthorListViewModel alloc] init];
-    }
-    return _viewModel;
-}
-
-- (void)updateNavigationBarView {
-    self.title = @"选择要订阅的Up主";
-    
-    CGFloat closeWid = 24;
-    UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    btn.frame =CGRectMake(0, 0, closeWid, closeWid);
-    [btn setImage:[UIImage svgImageNamed:@"icons_outlined_close" size:CGSizeMake(closeWid, closeWid) tintColor:UIColor.whiteColor] forState:(UIControlStateNormal)];
-    [btn addTarget:self action:@selector(leftBarButtonItemReturnAction) forControlEvents:(UIControlEventTouchUpInside)];
-    UIBarButtonItem *leftItem0 = [[UIBarButtonItem alloc]initWithCustomView:btn];
-    self.navigationItem.leftBarButtonItem = leftItem0;
-}
-
-- (void)setUpSearchBar {
-    UISearchBar *searchBar = [[UISearchBar alloc] init];
-    searchBar.placeholder = @"搜索Up主";
-    searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    [searchBar sizeToFit];
-    searchBar.userInteractionEnabled = NO;
-    [searchBar layoutIfNeeded]; // 提前触发TextField.label出现
-    searchBar.delegate = self;
-    searchBar.barTintColor = [UIColor blackColor];
-    self.searchBar = searchBar;
-    
-    UIView *searchContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.searchBar.width, self.searchBar.height)];
-    searchContainer.userInteractionEnabled = YES;
-    [searchContainer addSubview:self.searchBar];
-    UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickSearchBar:)];
-    [searchContainer addGestureRecognizer:ges];
-    self.searchContainer = searchContainer;
-}
-
-- (void)configureTableView {
-    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    [tableView registerClass:BNSearchAuthorTableViewCell.class forCellReuseIdentifier:BNSearchAuthorTableViewCellID];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    tableView.backgroundColor = [UIColor blackColor];
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.view addSubview:tableView];
-    self.tableView = tableView;
-    
+- (void)setupUI {
+    [self setupNavigationBar];
+    [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.searchContainer;
     [self.tableView setContentOffset:CGPointMake(0.0, 0.0) animated:YES];
     [self.tableView reloadData];
 }
 
-- (void)leftBarButtonItemReturnAction {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)setupNavigationBar {
+    self.title = @"选择要订阅的Up主";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.closeButton];
 }
 
 #pragma mark - Event
-- (void)clickSearchBar:(UIGestureRecognizer *)ges {
+- (void)didTapCloseButton {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)handleSearchBarTap:(UIGestureRecognizer *)ges {
     self.searchViewController = [[BNSearchAuthorViewController alloc] init];
     self.searchViewController.modalPresentationStyle = UIModalPresentationCustom;
     self.searchViewController.delegate = self;
-
     [self embedSubviewFromChildViewController:self.searchViewController];
 }
 
@@ -126,7 +85,68 @@ static NSString *const BNSearchAuthorTableViewCellID = @"BNSearchAuthorTableView
     [childViewController removeFromParentViewController];
 }
 
-#pragma mark - UITableView
+#pragma mark - init
+- (UISearchBar *)searchBar {
+    if (!_searchBar) {
+        _searchBar = [[UISearchBar alloc] init];
+        _searchBar.placeholder = @"搜索Up主";
+        _searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        [_searchBar sizeToFit];
+        _searchBar.userInteractionEnabled = NO;
+        [_searchBar layoutIfNeeded]; // 提前触发TextField.label出现
+        _searchBar.delegate = self;
+        _searchBar.barTintColor = [UIColor blackColor];
+    }
+    return _searchBar;
+}
+
+- (UIView *)searchContainer {
+    if (!_searchContainer) {
+        _searchContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.searchBar.width, self.searchBar.height)];
+        _searchContainer.userInteractionEnabled = YES;
+        [_searchContainer addSubview:self.searchBar];
+        UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSearchBarTap:)];
+        [_searchContainer addGestureRecognizer:ges];
+    }
+    return _searchContainer;
+}
+
+- (UIButton *)closeButton {
+    if (!_closeButton) {
+        _closeButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
+        _closeButton.frame = CGRectMake(0, 0, CloseButtonWidth, CloseButtonWidth);
+        [_closeButton setImage:[UIImage svgImageNamed:@"icons_outlined_close" size:CGSizeMake(CloseButtonWidth, CloseButtonWidth) tintColor:UIColor.whiteColor] forState:(UIControlStateNormal)];
+        [_closeButton addTarget:self action:@selector(didTapCloseButton) forControlEvents:(UIControlEventTouchUpInside)];
+    }
+    return _closeButton;
+}
+
+- (BNAuthorListViewModel *)viewModel {
+    if (!_viewModel) {
+        _viewModel = [[BNAuthorListViewModel alloc] init];
+    }
+    return _viewModel;
+}
+
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        [_tableView registerClass:BNSearchAuthorTableViewCell.class forCellReuseIdentifier:BNSearchAuthorTableViewCellID];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.backgroundColor = [UIColor blackColor];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    return _tableView;
+}
+
+#pragma mark - BNSearchAuthorViewControllerDelegate
+- (void)didCancelSelectSearchAuthor {
+    [self unembedChildViewController:self.searchViewController];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [self.viewModel numberOfSections];
 }
@@ -143,17 +163,13 @@ static NSString *const BNSearchAuthorTableViewCellID = @"BNSearchAuthorTableView
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     BNAuthorDataInfo *authorInfo = [self.viewModel getAuthorDataInfoAtSection:indexPath.section index:indexPath.row];
     return [BNSearchAuthorTableViewCell heightOfAuthorInfo:authorInfo];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 32;
+    return BNTableViewHeaderHeight;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -161,29 +177,23 @@ static NSString *const BNSearchAuthorTableViewCellID = @"BNSearchAuthorTableView
 }
 
 - (UIView *)getTableViewHeaderWithTitle:(NSString *)title {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 32)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, BNTableViewHeaderHeight)];
     headerView.backgroundColor = self.tableView.backgroundColor;
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 8, 0, 20)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(BNTableViewHeaderPadding, 8, 0, 20)];
     titleLabel.textAlignment = NSTextAlignmentLeft;
     titleLabel.backgroundColor = self.tableView.backgroundColor;
     titleLabel.font = [UIFont systemFontOfSize:16];
     titleLabel.textColor = UIColor.whiteColor;
     [titleLabel setText:title];
     [titleLabel sizeToFit];
-    if (titleLabel.width > self.view.width - 2 * 16) {
-        titleLabel.width = self.view.width - 2 * 16;
+    if (titleLabel.width > self.view.width - 2 * BNTableViewHeaderPadding) {
+        titleLabel.width = self.view.width - 2 * BNTableViewHeaderPadding;
     }
     titleLabel.frame = CGRectMake(4, 8, titleLabel.width, 20);
     titleLabel.alpha = 0.9;
     [headerView addSubview:titleLabel];
     
     return headerView;
-}
-
-#pragma mark - BNSearchAuthorViewControllerDelegate
-- (void)didCancelSelectSearchAuthor {
-    [self unembedChildViewController:self.searchViewController];
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

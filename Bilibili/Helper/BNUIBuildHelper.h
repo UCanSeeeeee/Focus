@@ -9,9 +9,9 @@
 #import "MMUIView.h"
 #import "BNSubDataDefine.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface BNUIBuildHelper : NSObject
+
+NS_ASSUME_NONNULL_BEGIN
 
 + (UILabel *)buildLabelWithFont:(UIFont *)font
                       textColor:(UIColor *)textColor
@@ -27,8 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
                                  target:(NSObject *)oTarget
                                  action:(SEL)oSelector;
 
-+ (UIColor *)getThemeColorByPlatformType:(BNSubAuthorPlatformType)platformType;
-
 + (NSString *)getThemeNameByPlatformType:(BNSubAuthorPlatformType)platformType;
 
 + (UIView *)buildSeparateLineLeftMargin:(CGFloat)leftMargin width:(CGFloat)width;
@@ -43,6 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
                                  target:(NSObject *)oTarget
                                  action:(SEL)oSelector;
 
-@end
-
 NS_ASSUME_NONNULL_END
+
++ (nullable UIColor *)getThemeColorByPlatformType:(BNSubAuthorPlatformType)platformType;
+
+@end

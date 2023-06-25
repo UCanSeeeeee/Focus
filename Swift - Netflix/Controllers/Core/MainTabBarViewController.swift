@@ -31,7 +31,7 @@ class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate{
         vc1.title = "首页"
         vc2.title = "搜索"
         vc3.title = "收藏"
-        vc4.title = "只看你想看"
+        vc4.title = "订阅"
         
         tabBar.tintColor = .label // 蓝色和白色的差别
         self.delegate = self

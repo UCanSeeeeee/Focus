@@ -23,12 +23,6 @@ typedef NS_ENUM(NSUInteger, BNSubRedDotShowType) {
     BNSubRedDotShowTypeNewContent = 2, ///< 有新内容
 };
 
-/*
- //    BNSubAuthorPlatformTypeWeChat = 1, ///< 微信公众号
- //    BNSubAuthorPlatformTypeYouTube = 3, ///< YouTube
- //    BNSubAuthorPlatformTypeWeiBo = 4, ///< 微博
- //    BNSubAuthorPlatformTypeZhiHu
- */
 #pragma mark - Chieh
 typedef NS_ENUM(NSUInteger, BNSubAuthorPlatformType) {
     BNSubAuthorPlatformTypeNone = 0,

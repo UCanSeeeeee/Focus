@@ -237,7 +237,15 @@ static NSString *const BNSearchAuthorTableViewCellID = @"BNSearchAuthorTableView
     }
 
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
-    [self performSelector:@selector(doSearchAction:) withObject:trimText afterDelay:1];
+    
+    /**
+     两种实现方式 尽量避免 performSelector
+     [self performSelector:@selector(doSearchAction:) withObject:trimText afterDelay:1];
+     */
+    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+        [self doSearchAction:trimText];
+    });
 }
 
 - (void)doSearchAction:(NSString *)searchText {

@@ -36,6 +36,11 @@ class DownloadsViewController: UIViewController {
         super.viewDidLayoutSubviews()
         downloadedTable.frame = view.bounds
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("downloaded"), object: nil)
+    }
+    
 }
 
 //MARK: - 自定义方法
