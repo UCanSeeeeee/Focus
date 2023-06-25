@@ -8,13 +8,6 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-@class TMLazyItemModel;
-@class BNMainCardViewModel;
-
-@protocol BNMainListViewModelDelegate <NSObject>
-
-
-@end
 
 @interface BNMainAppPlatformViewModel : NSObject
 
