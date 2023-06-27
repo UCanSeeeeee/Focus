@@ -10,15 +10,13 @@
 #import <MJRefresh/MJRefresh.h>
 
 #import "BNMainViewController.h"
-#import "MMUIView.h"
+#import "WJDefineHelper.h"
 #import "BNMainAppPlatformViewModel.h"
 #import "BNMainSubCardView.h"
 #import "BNAuthorIntroduceView.h"
 #import "BNAddSubscribeViewController.h"
 #import "BNSearchAuthorViewController.h"
 #import "BNSubscribeMMKV.h"
-
-#define kScrollMinContentSizeHeight (self.view.height - kNavBarAndStatusBarHeight)
 
 static const CGFloat kCardViewLeftRightMargin = 12;
 static const CGFloat kCardViewMargin = 16;
@@ -41,7 +39,6 @@ static const CGFloat kCardViewMargin = 16;
     [self setUpTopRefreshHeaderToScrollView];
     [self.view addSubview:self.scrollView];
     [self setUpCardList];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationBecomeActive) name:UIApplicationWillEnterForegroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:BNNotificationSubscribeChangeKey object:nil];
     [self refreshAllSubscribeCard];

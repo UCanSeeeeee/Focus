@@ -8,7 +8,7 @@
 #import "BNBlibliSearchAuthorCGI.h"
 #import <AFNetworking.h>
 #import "BNCommonDataTool.h"
-#import "BNSubDataDefine.h"
+#import "WJDefineHelper.h"
 #import "BNAuthorDataInfo.h"
 
 #define BNBlibliSearchAuthorAPI @"https://api.bilibili.com/x/web-interface/search/type?page=1&page_size=5&search_type=bili_user&order_sort=0&user_type=0"

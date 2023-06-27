@@ -8,7 +8,6 @@
 #import "BNYoutubeSearchAuthorCGI.h"
 #import <AFNetworking.h>
 #import "BNCommonDataTool.h"
-#import "BNSubDataDefine.h"
 #import "BNAuthorDataInfo.h"
 
 #define BNYoutubeSearchAuthorAPI @"https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&type=channel"

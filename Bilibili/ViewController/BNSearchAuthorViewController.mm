@@ -8,7 +8,6 @@
 #import "BNSearchAuthorViewController.h"
 #import "BNAuthorCellView.h"
 #import "BNMainCardViewModel.h"
-#import "BNRedDotBuildHelper.h"
 #import "BNUIBuildHelper.h"
 #import "UIImage+GIF.h"
 #import "BNSearchAuthorTableViewCell.h"
@@ -34,26 +33,27 @@ static NSString *const BNSearchAuthorTableViewCellID = @"BNSearchAuthorTableView
 
 @implementation BNSearchAuthorViewController
 
-- (BNSearchAuthorViewModel *)viewModel {
-    if (!_viewModel) {
-        _viewModel = [[BNSearchAuthorViewModel alloc] init];
-        _viewModel.delegate = self;
-    }
-    return _viewModel;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.85];
+    
+    [self.view addSubview:self.tableView];
+    [self.view addSubview:self.navigationView];
+    [self.navigationView addSubview:self.cancelSearchLabel];
+    [self.navigationView addSubview:self.searchBar];
+    [self.searchBar addSubview:self.loadingView];
+    
+    [self addTapGestureToView:self.view];
+    [self addTapGestureToView:self.tableView];
+    [self addTapGestureToView:self.cancelSearchLabel];
+    
+    [self.searchBar becomeFirstResponder];
+    [self.cancelSearchLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
 }
 
-- (UIImageView *)loadingView {
-    if (!_loadingView) {
-        CGFloat iconWid = 14;
-        _loadingView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, iconWid, iconWid)];
-        _loadingView.backgroundColor = [UIColor clearColor];
-        _loadingView.userInteractionEnabled = NO;//用户不可交互
-        NSString *filePath = [[NSBundle bundleWithPath:[[NSBundle mainBundle] bundlePath]] pathForResource:@"RoundLoading" ofType:@"gif"];
-        NSData *imageData = [NSData dataWithContentsOfFile:filePath];
-        _loadingView.image = [UIImage sd_imageWithGIFData:imageData];
-        _loadingView.hidden = YES;
-    }
-    return _loadingView;
+- (void)addTapGestureToView:(UIView *)view {
+    UITapGestureRecognizer *quitGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickQuitAction)];
+    [view addGestureRecognizer:quitGes];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -66,102 +66,12 @@ static NSString *const BNSearchAuthorTableViewCellID = @"BNSearchAuthorTableView
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [[NSNotificationCenter defaultCenter] postNotificationName:BNNotificationSubscribeChangeKey object:@(self.platformSubscribeChanged)];
 }
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.85];
-    
-    UITapGestureRecognizer *quitGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickQuitAction)];
-    [self.view addGestureRecognizer:quitGes];
-    
-    [self configTableView];
-    [self initNaviBar];
-    [self setSearchTextFieldBecomeFirstResponder];
-    [self.cancelSearchLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-}
-
+#pragma mark - Action
 - (void)clickQuitAction {
     if (self.delegate && [self.delegate respondsToSelector:@selector(didCancelSelectSearchAuthor)]) {
         [self.delegate didCancelSelectSearchAuthor];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)configTableView {
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 124) style:UITableViewStylePlain];
-    self.tableView.y = kNavBarHeight;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    
-    [self.tableView registerClass:BNSearchAuthorTableViewCell.class forCellReuseIdentifier:BNSearchAuthorTableViewCellID];
-    
-    self.tableView.estimatedSectionFooterHeight = 0.0;
-    self.tableView.estimatedSectionHeaderHeight = 0.0;
-    self.tableView.backgroundColor = [UIColor blackColor];
-    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-    
-    [self.view addSubview:self.tableView];
-    [self.tableView setHidden:YES];
-    
-    UITapGestureRecognizer *quitGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickQuitAction)];
-    [self.tableView addGestureRecognizer:quitGes];
-}
-
-- (void)initNaviBar {
-    {
-        self.navigationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, kNavBarHeight)];
-        self.navigationView.backgroundColor = [UIColor blackColor];
-        [self.view addSubview:self.navigationView];
-    }
-    
-    {
-        // 取消button
-        self.cancelSearchLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 24)];
-        self.cancelSearchLabel.textColor = [UIColor colorFromHexString:kColorLink_100];
-        self.cancelSearchLabel.font = [UIFont systemFontOfSize:17];
-        [self.cancelSearchLabel setText:@"取消"];
-        [self.cancelSearchLabel sizeToFit];
-        self.cancelSearchLabel.height = 24;
-        self.cancelSearchLabel.left = self.view.width - 12 - self.cancelSearchLabel.width;
-        self.cancelSearchLabel.userInteractionEnabled = YES;
-        
-        UITapGestureRecognizer *cancelGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickQuitAction)];
-        [self.cancelSearchLabel addGestureRecognizer:cancelGes];
-        
-        self.cancelSearchLabel.centerY = self.navigationView.height / 2;
-        [self.navigationView addSubview:self.cancelSearchLabel];
-    }
-    
-    {
-        // searchbar
-        UISearchBar *searchBar = [[UISearchBar alloc] init];
-        searchBar.placeholder = @"搜索Up主";
-        searchBar.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-        searchBar.returnKeyType = UIReturnKeySearch;
-        [searchBar sizeToFit];
-        searchBar.userInteractionEnabled = YES;
-        [searchBar layoutIfNeeded]; // 提前触发TextField.label出现
-        searchBar.delegate = self;
-        searchBar.height = kNavBarHeight - 2 * 4;
-        searchBar.barTintColor = [UIColor blackColor];
-        searchBar.tintColor = [UIColor whiteColor];
-        searchBar.searchTextField.textColor = [UIColor whiteColor];
-        self.searchBar = searchBar;
-        self.searchBar.width = self.cancelSearchLabel.left - 8;
-        self.searchBar.centerY = self.navigationView.height / 2;
-        [self.navigationView addSubview:self.searchBar];
-    }
-    
-    self.loadingView.centerY = self.searchBar.height / 2;
-    self.loadingView.right = self.searchBar.width - 42;
-    [self.searchBar addSubview:self.loadingView];
-    
-    [self.view addSubview:self.navigationView];
-}
-
-- (void)setSearchTextFieldBecomeFirstResponder {
-    [self.searchBar becomeFirstResponder];
 }
 
 #pragma mark - UITableView
@@ -224,8 +134,8 @@ static NSString *const BNSearchAuthorTableViewCellID = @"BNSearchAuthorTableView
     [self.view removeAllGestureRecognizer];
     if (searchText.length <= 0) {
         [self.tableView setHidden:YES];
-        UITapGestureRecognizer *quitGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickQuitAction)];
-        [self.view addGestureRecognizer:quitGes];
+//        UITapGestureRecognizer *quitGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickQuitAction)];
+//        [self.view addGestureRecognizer:quitGes];
     } else {
         [self.tableView setHidden:NO];
     }
@@ -272,4 +182,89 @@ static NSString *const BNSearchAuthorTableViewCellID = @"BNSearchAuthorTableView
     self.platformSubscribeChanged |= platformType;
 }
 
+#pragma mark - init
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 124) style:UITableViewStylePlain];
+        _tableView.y = kNavBarHeight;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        [_tableView registerClass:BNSearchAuthorTableViewCell.class forCellReuseIdentifier:BNSearchAuthorTableViewCellID];
+        _tableView.estimatedSectionFooterHeight = 0.0;
+        _tableView.estimatedSectionHeaderHeight = 0.0;
+        _tableView.backgroundColor = [UIColor blackColor];
+        _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+        _tableView.hidden = YES;
+    }
+    return _tableView;
+}
+
+
+- (UIView *)navigationView {
+    if (!_navigationView) {
+        _navigationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, kNavBarHeight)];
+        _navigationView.backgroundColor = [UIColor blackColor];
+    }
+    return _navigationView;
+}
+
+- (UILabel *)cancelSearchLabel {
+    if (!_cancelSearchLabel) {
+        _cancelSearchLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 24)];
+        _cancelSearchLabel.textColor = [UIColor colorFromHexString:kColorLink_100];
+        _cancelSearchLabel.font = [UIFont systemFontOfSize:17];
+        _cancelSearchLabel.text = @"取消";
+        [_cancelSearchLabel sizeToFit];
+        _cancelSearchLabel.height = 24;
+        _cancelSearchLabel.left = self.view.width - 12 - self.cancelSearchLabel.width;
+        _cancelSearchLabel.userInteractionEnabled = YES;
+        _cancelSearchLabel.centerY = self.navigationView.height / 2;
+    }
+    return _cancelSearchLabel;
+}
+
+- (UISearchBar *)searchBar {
+    if (!_searchBar) {
+        _searchBar = [[UISearchBar alloc] init];
+        _searchBar.placeholder = @"搜索Up主";
+        _searchBar.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+        _searchBar.returnKeyType = UIReturnKeySearch;
+        [_searchBar sizeToFit];
+        _searchBar.userInteractionEnabled = YES;
+        [_searchBar layoutIfNeeded]; // 提前触发TextField.label出现
+        _searchBar.delegate = self;
+        _searchBar.height = kNavBarHeight - 2 * 4;
+        _searchBar.barTintColor = [UIColor blackColor];
+        _searchBar.tintColor = [UIColor whiteColor];
+        _searchBar.searchTextField.textColor = [UIColor whiteColor];
+        _searchBar.width = self.cancelSearchLabel.left - 8;
+        _searchBar.centerY = self.navigationView.height / 2;
+    }
+    return _searchBar;
+}
+
+- (BNSearchAuthorViewModel *)viewModel {
+    if (!_viewModel) {
+        _viewModel = [[BNSearchAuthorViewModel alloc] init];
+        _viewModel.delegate = self;
+    }
+    return _viewModel;
+}
+
+- (UIImageView *)loadingView {
+    if (!_loadingView) {
+        CGFloat iconWid = 14;
+        _loadingView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, iconWid, iconWid)];
+        _loadingView.backgroundColor = [UIColor clearColor];
+        _loadingView.userInteractionEnabled = NO;//用户不可交互
+        NSString *filePath = [[NSBundle bundleWithPath:[[NSBundle mainBundle] bundlePath]] pathForResource:@"RoundLoading" ofType:@"gif"];
+        NSData *imageData = [NSData dataWithContentsOfFile:filePath];
+        _loadingView.image = [UIImage sd_imageWithGIFData:imageData];
+        _loadingView.hidden = YES;
+        _loadingView.centerY = self.searchBar.height / 2;
+        _loadingView.right = self.searchBar.width - 42;
+    }
+    return _loadingView;
+}
 @end

@@ -5,7 +5,7 @@
 //  Created by chieh on 2022/3/6.
 //
 
-#import "MMUIView.h"
+#import "WJDefineHelper.h"
 
 @class BNMainCardViewModel;
 
@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface BNMainSubCardView : MMUIView
+@interface BNMainSubCardView : UIView
 
 @property (nonatomic, weak) id<BNMainSubCardViewDelegate> delegate;
 

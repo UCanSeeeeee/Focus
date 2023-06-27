@@ -6,8 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MMUIView.h"
-#import "BNSubDataDefine.h"
+#import "WJDefineHelper.h"
+#import "WJEnumHelper.h"
 
 @interface BNUIBuildHelper : NSObject
 

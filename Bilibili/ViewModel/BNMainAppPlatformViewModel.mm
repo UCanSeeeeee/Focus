@@ -6,7 +6,7 @@
 //
 
 #import "BNMainAppPlatformViewModel.h"
-#import "BNSubDataDefine.h"
+#import "WJEnumHelper.h"
 
 @interface BNMainAppPlatformViewModel ()
 
