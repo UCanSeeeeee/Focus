@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 #import "BNAuthorDataInfo.h"
+#import "WJBlockTypedefHelper.h"
+#import "WJEnumHelper.h"
 
 @class BNSubscribeInfoModel;
 @class BNSubscribeWCDB;

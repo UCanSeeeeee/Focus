@@ -7,8 +7,7 @@
 
 #import "BNQuestionListViewController.h"
 #import "BNTitleSubView.h"
-#import "MMUIView.h"
-#import "BNRouterHelper.h"
+#import "WJDefineHelper.h"
 
 #define BNTopDefaultMargin 8
 #define BNLeftRightMargin 16
@@ -20,7 +19,6 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray<BNTitleSubView *> *subViewArray;
-@property (nonatomic, strong) UIButton *callAuthorBtn;
 
 @end
 
@@ -55,21 +53,6 @@
         _titleLabel.centerX = self.view.width / 2;
     }
     return _titleLabel;
-}
-
-- (UIButton *)callAuthorBtn {
-    if (!_callAuthorBtn) {
-        _callAuthorBtn = [[UIButton alloc] initWithFrame:CGRectMake(BNLeftRightMargin, 0, self.view.width - 2 * BNLeftRightMargin, 18)];
-        [_callAuthorBtn addTarget:self action:@selector(onClickCallAuthorBtnAction) forControlEvents:UIControlEventTouchUpInside];
-        NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:@"没解决您的问题，点击联系作者"];
-        NSRange titleRange = {0,[title length]};
-        [title addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:titleRange];
-        [_callAuthorBtn setAttributedTitle:title
-                          forState:UIControlStateNormal];
-        [_callAuthorBtn setTitleColor:UIColor.linkColor forState:UIControlStateNormal];
-        [_callAuthorBtn sizeToFit];
-    }
-    return _callAuthorBtn;
 }
 
 - (UIScrollView *)scrollView {
@@ -114,16 +97,7 @@
         [self.scrollView addSubview:obj];
     }];
     
-    self.callAuthorBtn.top = marginTop;
-    marginTop = self.callAuthorBtn.bottom + BNSubViewMargin;
-    [self.scrollView addSubview:self.callAuthorBtn];
-    self.callAuthorBtn.hidden = YES;
-    
     self.scrollView.contentSize = CGSizeMake(self.view.width, marginTop);
-}
-
-- (void)onClickCallAuthorBtnAction {
-    [BNRouterHelper jumpToAuthorWeiboByCurrentNavController:self.navigationController];
 }
 
 - (void)leftBarButtonItemReturnAction {

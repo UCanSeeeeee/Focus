@@ -6,8 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MMUIView.h"
-#import "BNSubDataDefine.h"
+#import "WJDefineHelper.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

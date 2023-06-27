@@ -8,7 +8,6 @@
 #import "BNYoutubeGetAuthorInfoCGI.h"
 #import <AFNetworking.h>
 #import "BNCommonDataTool.h"
-#import "BNSubDataDefine.h"
 #import "BNAuthorDataInfo.h"
 #import "BNCommonDataTool.h"
 

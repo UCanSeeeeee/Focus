@@ -11,28 +11,25 @@
 #import "UIView+ViewToolBox.h"
 #import "Colours.h"
 // Colours 的颜色: https://blog.csdn.net/hitwhylz/article/details/18889469
-#import "BNSubDataDefine.h"
 #import "BNUIBuildHelper.h"
 #import "BNBasicDataService.h"
 #import "BNCommonDataTool.h"
 #import "NSString+Interact.h"
 
 #define kColorBG1 @"#1E1E1E"
-
 #define kColorWXBrand @"#07C160"
 #define kColorBlibliBrand @"#FF2F6A"
 #define kColorYouTubeBrand @"#FF061C"
 #define kColorWeiBoBrand @"#FFD04F"
 #define kColorZhihuBrand @"#005CF9"
-
 #define kColorLink_100 @"#7D90A9"
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
-#define kIs_iphone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define kIs_iphone ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone)
 #define kIs_iPhoneX kScreenWidth >=375.0f && kScreenHeight >=812.0f&& kIs_iphone
-    
+
 /*状态栏高度*/
 #define kStatusBarHeight (CGFloat)(kIs_iPhoneX?(44.0):(20.0))
 /*导航栏高度*/
@@ -48,10 +45,10 @@
 /*iPhoneX的状态栏高度差值*/
 #define kTopBarDifHeight (CGFloat)(kIs_iPhoneX?(24.0):(0))
 
-NS_ASSUME_NONNULL_BEGIN
+#define kScrollMinContentSizeHeight (self.view.height - kNavBarAndStatusBarHeight)
 
-@interface MMUIView : UIView
-
-@end
-
-NS_ASSUME_NONNULL_END
+#define BNBlibliPlayPrefixUrl @"https://www.bilibili.com/video/"
+#define BNYoutubePlayPrefixUrl @"https://www.youtube.com/watch?v="
+#define BNWeiBoAuthorProfileSchemeUrl @"s"
+#define BNWeiBoAuthorProfileH5Url @"https://weibo.com/5886362593/profile?topnav=1&wvr=6"
+#define BNNotificationSubscribeChangeKey @"BNNotificationSubscribeChangeKey"

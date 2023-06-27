@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MMUIView.h"
+#import "WJDefineHelper.h"
 #import <WCDB/WCDB.h>
 
 NS_ASSUME_NONNULL_BEGIN

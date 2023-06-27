@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BNSubDataDefine.h"
+#import "WJBlockTypedefHelper.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

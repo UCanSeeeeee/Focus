@@ -8,12 +8,10 @@
 #import "BNAuthorIntroduceView.h"
 #import "BNAuthorCellView.h"
 #import "BNMainCardViewModel.h"
-#import "BNRedDotBuildHelper.h"
 #import "BNUIBuildHelper.h"
 #import "UIImage+GIF.h"
 #import "BNCellWidgetView.h"
 #import "BNQuestionListViewController.h"
-#import "BNRouterHelper.h"
 #import "FCAlertView.h"
 
 @interface BNAuthorIntroduceView ()

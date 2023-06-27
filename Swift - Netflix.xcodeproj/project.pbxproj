@@ -34,7 +34,6 @@
 		D103CD922A1CB44F009CE4FD /* CWUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D103CD912A1CB44F009CE4FD /* CWUITests.m */; };
 		D103CD942A1CB44F009CE4FD /* CWUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D103CD932A1CB44F009CE4FD /* CWUITestsLaunchTests.m */; };
 		D110E1E629DB0B330093AAA8 /* BNAuthorCellView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E17E29DB0B310093AAA8 /* BNAuthorCellView.mm */; };
-		D110E1E729DB0B330093AAA8 /* MMUIView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E17F29DB0B310093AAA8 /* MMUIView.mm */; };
 		D110E1E829DB0B330093AAA8 /* BNAuthorIntroduceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E18329DB0B310093AAA8 /* BNAuthorIntroduceView.mm */; };
 		D110E1E929DB0B330093AAA8 /* BNTitleSubView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E18429DB0B310093AAA8 /* BNTitleSubView.mm */; };
 		D110E1EB29DB0B330093AAA8 /* BNSearchAuthorTableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E18829DB0B310093AAA8 /* BNSearchAuthorTableViewCell.mm */; };
@@ -82,10 +81,8 @@
 		D110E21529DB0B330093AAA8 /* BNAuthorDataInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1D629DB0B330093AAA8 /* BNAuthorDataInfo.mm */; };
 		D110E21629DB0B330093AAA8 /* BNSearchAuthorViewModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1D729DB0B330093AAA8 /* BNSearchAuthorViewModel.mm */; };
 		D110E21729DB0B330093AAA8 /* BNMainCardViewModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1D829DB0B330093AAA8 /* BNMainCardViewModel.mm */; };
-		D110E21829DB0B330093AAA8 /* BNRedDotBuildHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1DB29DB0B330093AAA8 /* BNRedDotBuildHelper.mm */; };
 		D110E21929DB0B330093AAA8 /* BNUIBuildHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1DF29DB0B330093AAA8 /* BNUIBuildHelper.mm */; };
 		D110E21A29DB0B330093AAA8 /* BNCommonDataTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1E029DB0B330093AAA8 /* BNCommonDataTool.mm */; };
-		D110E21B29DB0B330093AAA8 /* BNRouterHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1E129DB0B330093AAA8 /* BNRouterHelper.mm */; };
 		D110E21C29DB0B330093AAA8 /* DelegateMethodProxy.mm in Sources */ = {isa = PBXBuildFile; fileRef = D110E1E229DB0B330093AAA8 /* DelegateMethodProxy.mm */; };
 		D15BC81628A502AB0065D2B9 /* TitleItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15BC81428A502AB0065D2B9 /* TitleItem+CoreDataClass.swift */; };
 		D15BC81728A502AB0065D2B9 /* TitleItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15BC81528A502AB0065D2B9 /* TitleItem+CoreDataProperties.swift */; };
@@ -141,10 +138,9 @@
 		D103CD912A1CB44F009CE4FD /* CWUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CWUITests.m; sourceTree = "<group>"; };
 		D103CD932A1CB44F009CE4FD /* CWUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CWUITestsLaunchTests.m; sourceTree = "<group>"; };
 		D110E17E29DB0B310093AAA8 /* BNAuthorCellView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNAuthorCellView.mm; sourceTree = "<group>"; };
-		D110E17F29DB0B310093AAA8 /* MMUIView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MMUIView.mm; sourceTree = "<group>"; };
 		D110E18029DB0B310093AAA8 /* BNAuthorIntroduceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNAuthorIntroduceView.h; sourceTree = "<group>"; };
 		D110E18129DB0B310093AAA8 /* BNAuthorCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNAuthorCellView.h; sourceTree = "<group>"; };
-		D110E18229DB0B310093AAA8 /* MMUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMUIView.h; sourceTree = "<group>"; };
+		D110E18229DB0B310093AAA8 /* WJDefineHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJDefineHelper.h; sourceTree = "<group>"; };
 		D110E18329DB0B310093AAA8 /* BNAuthorIntroduceView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNAuthorIntroduceView.mm; sourceTree = "<group>"; };
 		D110E18429DB0B310093AAA8 /* BNTitleSubView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNTitleSubView.mm; sourceTree = "<group>"; };
 		D110E18529DB0B310093AAA8 /* BNTitleSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNTitleSubView.h; sourceTree = "<group>"; };
@@ -221,20 +217,17 @@
 		D110E1D729DB0B330093AAA8 /* BNSearchAuthorViewModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNSearchAuthorViewModel.mm; sourceTree = "<group>"; };
 		D110E1D829DB0B330093AAA8 /* BNMainCardViewModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNMainCardViewModel.mm; sourceTree = "<group>"; };
 		D110E1D929DB0B330093AAA8 /* BNMainCardViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNMainCardViewModel.h; sourceTree = "<group>"; };
-		D110E1DB29DB0B330093AAA8 /* BNRedDotBuildHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNRedDotBuildHelper.mm; sourceTree = "<group>"; };
-		D110E1DC29DB0B330093AAA8 /* BNRouterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRouterHelper.h; sourceTree = "<group>"; };
-		D110E1DD29DB0B330093AAA8 /* BNRedDotBuildHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRedDotBuildHelper.h; sourceTree = "<group>"; };
 		D110E1DE29DB0B330093AAA8 /* DelegateMethodProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelegateMethodProxy.h; sourceTree = "<group>"; };
 		D110E1DF29DB0B330093AAA8 /* BNUIBuildHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNUIBuildHelper.mm; sourceTree = "<group>"; };
 		D110E1E029DB0B330093AAA8 /* BNCommonDataTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNCommonDataTool.mm; sourceTree = "<group>"; };
-		D110E1E129DB0B330093AAA8 /* BNRouterHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNRouterHelper.mm; sourceTree = "<group>"; };
 		D110E1E229DB0B330093AAA8 /* DelegateMethodProxy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DelegateMethodProxy.mm; sourceTree = "<group>"; };
 		D110E1E329DB0B330093AAA8 /* BNCommonDataTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCommonDataTool.h; sourceTree = "<group>"; };
-		D110E1E429DB0B330093AAA8 /* BNSubDataDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSubDataDefine.h; sourceTree = "<group>"; };
 		D110E1E529DB0B330093AAA8 /* BNUIBuildHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNUIBuildHelper.h; sourceTree = "<group>"; };
 		D15BAF5529DB095200B07601 /* Swift - Netflix-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swift - Netflix-Bridging-Header.h"; sourceTree = "<group>"; };
 		D15BC81428A502AB0065D2B9 /* TitleItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TitleItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D15BC81528A502AB0065D2B9 /* TitleItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TitleItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D189E48B2A483F4C0010B2D1 /* WJBlockTypedefHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJBlockTypedefHelper.h; sourceTree = "<group>"; };
+		D189E48C2A4840730010B2D1 /* WJEnumHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJEnumHelper.h; sourceTree = "<group>"; };
 		D5D552C8790E9407607217FA /* Pods-Swift - Netflix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift - Netflix.debug.xcconfig"; path = "Target Support Files/Pods-Swift - Netflix/Pods-Swift - Netflix.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -433,8 +426,6 @@
 				D110E18829DB0B310093AAA8 /* BNSearchAuthorTableViewCell.mm */,
 				D110E18529DB0B310093AAA8 /* BNTitleSubView.h */,
 				D110E18429DB0B310093AAA8 /* BNTitleSubView.mm */,
-				D110E18229DB0B310093AAA8 /* MMUIView.h */,
-				D110E17F29DB0B310093AAA8 /* MMUIView.mm */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -576,17 +567,16 @@
 		D110E1DA29DB0B330093AAA8 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				D110E1B929DB0B320093AAA8 /* Resources */,
 				D110E1E329DB0B330093AAA8 /* BNCommonDataTool.h */,
 				D110E1E029DB0B330093AAA8 /* BNCommonDataTool.mm */,
-				D110E1DD29DB0B330093AAA8 /* BNRedDotBuildHelper.h */,
-				D110E1DB29DB0B330093AAA8 /* BNRedDotBuildHelper.mm */,
-				D110E1DC29DB0B330093AAA8 /* BNRouterHelper.h */,
-				D110E1E129DB0B330093AAA8 /* BNRouterHelper.mm */,
-				D110E1E429DB0B330093AAA8 /* BNSubDataDefine.h */,
 				D110E1E529DB0B330093AAA8 /* BNUIBuildHelper.h */,
 				D110E1DF29DB0B330093AAA8 /* BNUIBuildHelper.mm */,
 				D110E1DE29DB0B330093AAA8 /* DelegateMethodProxy.h */,
 				D110E1E229DB0B330093AAA8 /* DelegateMethodProxy.mm */,
+				D189E48B2A483F4C0010B2D1 /* WJBlockTypedefHelper.h */,
+				D110E18229DB0B310093AAA8 /* WJDefineHelper.h */,
+				D189E48C2A4840730010B2D1 /* WJEnumHelper.h */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -597,7 +587,6 @@
 				D110E19B29DB0B320093AAA8 /* APIService */,
 				D110E18E29DB0B320093AAA8 /* Category */,
 				D110E1DA29DB0B330093AAA8 /* Helper */,
-				D110E1B929DB0B320093AAA8 /* Resources */,
 				D110E17D29DB0B310093AAA8 /* View */,
 				D110E1AC29DB0B320093AAA8 /* ViewController */,
 				D110E1CD29DB0B330093AAA8 /* ViewModel */,
@@ -809,7 +798,6 @@
 				D110E1F329DB0B330093AAA8 /* UIView+Extension.m in Sources */,
 				0A5AAAA7276AE1D500149719 /* TitleCollectionViewCell.swift in Sources */,
 				0A28420E2799EDB10023560C /* DataPersistenceManager.swift in Sources */,
-				D110E21B29DB0B330093AAA8 /* BNRouterHelper.mm in Sources */,
 				D110E1FE29DB0B330093AAA8 /* BNAuthorListViewController.mm in Sources */,
 				0A6209AB2734603E00A88D71 /* MainTabBarViewController.swift in Sources */,
 				0A1942D0274A620100B3FA93 /* CollectionViewTableViewCell.swift in Sources */,
@@ -840,14 +828,12 @@
 				0A6209BE2734617600A88D71 /* UpcomingViewController.swift in Sources */,
 				D110E21729DB0B330093AAA8 /* BNMainCardViewModel.mm in Sources */,
 				D110E1F129DB0B330093AAA8 /* UIBarButtonItem+Extension.m in Sources */,
-				D110E21829DB0B330093AAA8 /* BNRedDotBuildHelper.mm in Sources */,
 				D110E1EE29DB0B330093AAA8 /* UIView+Extend.mm in Sources */,
 				D110E1E629DB0B330093AAA8 /* BNAuthorCellView.mm in Sources */,
 				D110E1EF29DB0B330093AAA8 /* UIView+ViewToolBox.mm in Sources */,
 				0AF8A46B2787BC2100FFE877 /* TitlePreviewViewController.swift in Sources */,
 				0AD9A10427604E4D00131EEF /* Title.swift in Sources */,
 				D110E1FA29DB0B330093AAA8 /* BNSubscribeWCDB.mm in Sources */,
-				D110E1E729DB0B330093AAA8 /* MMUIView.mm in Sources */,
 				D110E1E929DB0B330093AAA8 /* BNTitleSubView.mm in Sources */,
 				D15BC81628A502AB0065D2B9 /* TitleItem+CoreDataClass.swift in Sources */,
 				D110E21229DB0B330093AAA8 /* BNMainAppPlatformViewModel.mm in Sources */,

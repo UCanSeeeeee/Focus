@@ -8,7 +8,6 @@
 #import "BNCellWidgetView.h"
 #import "BNAuthorCellView.h"
 #import "BNMainCardViewModel.h"
-#import "BNRedDotBuildHelper.h"
 #import "BNUIBuildHelper.h"
 #import "UIImage+GIF.h"
 #import "DelegateMethodProxy.h"

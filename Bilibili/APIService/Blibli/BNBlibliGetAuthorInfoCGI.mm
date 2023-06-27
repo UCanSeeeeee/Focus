@@ -8,7 +8,7 @@
 #import "BNBlibliGetAuthorInfoCGI.h"
 #import <AFNetworking.h>
 #import "BNCommonDataTool.h"
-#import "BNSubDataDefine.h"
+#import "WJDefineHelper.h"
 #import "BNAuthorDataInfo.h"
 
 #define BNBlibliGetAuthorInfoAPI @"https://api.bilibili.com/x/space/wbi/arc/search?"

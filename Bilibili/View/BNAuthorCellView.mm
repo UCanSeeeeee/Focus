@@ -8,7 +8,6 @@
 #import "BNAuthorCellView.h"
 #import <SDWebImage/SDWebImage.h>
 #import "BNUIBuildHelper.h"
-#import "BNRedDotBuildHelper.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "BNMainCardViewModel.h"
 #import "BNAuthorDataInfo.h"
